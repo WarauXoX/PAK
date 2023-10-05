@@ -6,7 +6,7 @@
     font-family: Montserrat;
     src: url(../fonts/Montserrat.ttf);
 }
-h1, h2, h3, p, button, select{
+h1, h2, h3, p, button, select, a{
     font-family: Montserrat;
 }
 header{
@@ -15,7 +15,7 @@ header{
     align-items: center;
     justify-content: space-between;
 }
-header h1, header p{
+header h1, header p, header a{
     color: white;
     margin: 2vh 7vw;
 }

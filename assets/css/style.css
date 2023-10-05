@@ -1,12 +1,13 @@
 *{
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 @font-face {
     font-family: Montserrat;
     src: url(../fonts/Montserrat.ttf);
 }
-h1, h2, h3, p{
+h1, h2, h3, p, a{
     font-family: Montserrat;
 }
 header{
@@ -15,6 +16,64 @@ header{
     align-items: center;
     justify-content: space-between;
 
+}
+.pop-up{
+    left:0;
+    top:0;
+    position: absolute;
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pop-up > form{
+    background-color: white;
+    box-shadow: -.25em .25em 50px  rgb(109, 108, 108);
+    text-align: center;
+    padding: 2% 5%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.pop-up > form > h2{
+    margin-bottom:2em;
+}
+.pop-up > form > input{
+    display: flex;
+    padding: 5% 5%;
+    width: 100%;
+    margin: 5%;
+}
+#preResPass{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    width: 110%;
+}
+#ResPass{
+    color: #BABABA;
+    margin-bottom: 2em;
+}
+.aunth{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: baseline
+}
+.aunth a{
+    color: black;
+    text-decoration: none;
+}
+.aunth button{
+    padding: 1em 2em;
+    background-color: #545AF8;
+    color:white;
+    border: none;
+    border-radius: .5em;
+    cursor: pointer;
 }
 header p{
     cursor: pointer;
