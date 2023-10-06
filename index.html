@@ -10,7 +10,7 @@
   <body>
     <header>
       <h1>ПАК</h1>
-      <p>Войти</p>
+      <p id="start">Войти</p>
     </header>
     <section class="main">
       <div id="text">
@@ -26,20 +26,23 @@
         <p id="ProgFrbus">Программное решение для бизнеса</p>
         <p id="Web">Web разработка</p>
       </div>
-      <div class="pop-up">
-        <form action="">
-          <h2>Вход в систему ПАК</h2>
-          <input name="e-mail" placeholder="Ваш E-mail" />
-          <input name="password" placeholder="пароль" />
-          <div id="preResPass">
-            <a href="#" id="ResPass">Забыли пороль</a>
-          </div>
-          <div class="aunth">
-            <button type="submit">Войти</button>
-            <a href="registration.html">Регистрация</a>
-          </div>
-        </form>
-      </div>
+      <div class="pop-up-bg">
+        <div class="pop-up">
+          <form action="">
+            <h2>Вход в систему ПАК</h2>
+            <input name="e-mail" placeholder="Ваш E-mail" />
+            <input name="password" placeholder="пароль" />
+            <div id="preResPass">
+              <a href="#" id="ResPass">Забыли пороль</a>
+            </div>
+            <div class="aunth">
+              <button type="submit">Войти</button>
+              <a href="registration.html">Регистрация</a>
+            </div>
+          </form>
+        </div>
+      <div>
+
     </section>
     <section class="AbtUs">
       <div class="reason">
@@ -112,5 +115,6 @@
         <p>Тех. Поддержка</p>
       </div>
     </footer>
+    <script src="assets/JS/script.js"></script>
   </body>
 </html>

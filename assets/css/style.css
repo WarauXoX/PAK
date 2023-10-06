@@ -17,19 +17,41 @@ header{
     justify-content: space-between;
 
 }
+.pop-up-bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s all;
+}
+.pop-up-bg.active { /* При добавлении класса 'active' */
+    opacity: 1; /* Показываем фон и попап */
+    pointer-events: all; /* Возвращаем события */
+    transition: 0.5s all;
+}
 .pop-up{
-    left:0;
-    top:0;
     position: absolute;
-    width: 100dvw;
-    height: 100dvh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background: #fff;
+    width: 25vw;
+    height: auto;
+    padding: 25px;
+    box-shadow: -.25em .25em 50px  rgb(109, 108, 108);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.5s all;
+}
+.popup.active{
+    transition: 0.5s all;
 }
 .pop-up > form{
     background-color: white;
-    box-shadow: -.25em .25em 50px  rgb(109, 108, 108);
     text-align: center;
     padding: 2% 5%;
     margin: 0;
