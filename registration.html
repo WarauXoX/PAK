@@ -25,10 +25,14 @@
             </div>
 
             <p class="title">Ваш пол</p>
-            <div class="sex">
-                <button>Мужской</button> 
-                <button>женский</button>
-            </div>
+            <form class="sex" method="get">
+                <input type="radio" checked name="gender" id="man" value="man">
+                <label for="man" id="manlab">Мужской</label>
+
+                <input type="radio" name="gender" id="women" value="woman">
+                <label for="women" id="womlab">Женский</label>
+
+            </form>
 
             <div>
                 <p class="title">Роль</p>
