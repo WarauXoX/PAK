@@ -23,7 +23,7 @@ header h1, header p, header a{
     margin: 1em 0;
 }
 .registration{
-    margin: 0 12em;  
+    margin: 0 10vw;  
     display: flex;
 }
 .registration div{
@@ -31,11 +31,11 @@ header h1, header p, header a{
     width: 25%;
 }
 .registration input{
-    padding: .5em;
+    padding: .8vh .5vw;
     margin-bottom: 2em;
     border: 1px solid #B1B1B1;
-    width: 17.8em;
-    height: 2em;
+    width: 11.3vw;
+    height: 2.5vh;
 }
 ::placeholder{
     color: #B1B1B1
@@ -44,12 +44,10 @@ header h1, header p, header a{
     display: flex;
 }
 .sex input[type="radio"]{
-    padding: 1em 2em;
-    border: #B1B1B1 solid 1px;
     display: none;
 }
 .sex label{
-    padding: 1.5em 2em;
+    padding: 1.7vh 1.42vw;
     border: solid 1px #B1B1B1;
     cursor: pointer;
 }
@@ -87,11 +85,12 @@ select{
     color: #B1B1B1;
 }
 #birthdate{
-    width: 14em;
-    padding: .7em;
+    padding: .7vh .7vw;
+    width: 10.8vw;
+    height: 2.5vh;
 }
 footer{
-    margin-top: 6.28em;
+    margin-top: 11.85vh;
     background-color: #545AF8;
     color: white;
     display: flex;

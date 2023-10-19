@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --index: calc(1vw + 1vh)
+}
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat.ttf);
+}
+h1, h2, h3, p, button, select, a, b{
+    font-family: Montserrat;
+}
+header{
+    background: #545AF8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+}
+header h1, header a{
+    color: white;
+    margin: 2vh 5vw;
+}
+header a{
+    font-size: .5em;
+    text-decoration: none;
+
+}
+.title{
+    margin: 1em 0;
+}
+.profile{
+    display: flex;
+}
+.profile div img{
+    height:  calc(var(--index)*8);
+    width: calc(var(--index)*8);
+    border-radius: 50%;
+}
+.info{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+.margin{
+    margin: 5vh 3vw;
+}
+.profile button{
+    color: blue;
+    padding: calc(var(--index)/3);
+
+    
+}
+#right-panel{
+    margin: 0 calc(var(--index)*1.5);
+}
+#right-panel *{
+    margin: calc(var(--index)/7) 0;
+}
+#right-panel button{
+    border: 2px dashed;
+    background-color: white;
+    font-size: 1em;
+}
+#right-panel button b{
+    font-size: 1.2em;
+}
+.course-status{
+    display: flex;
+}
+.course-status *{
+    margin: 0 calc(var(--index)/2) calc(var(--index)/4) 0;
+}
+.courses{
+    background-color: rgb(214, 213, 213);
+    padding: calc(var(--index)/2);
+    border-radius: 1em;
+    box-shadow: .1em .1em .7em  rgb(109, 108, 108);
+
+}
+.gray-text{
+    color: gray
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
