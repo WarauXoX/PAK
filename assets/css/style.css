@@ -7,6 +7,9 @@
     font-family: Montserrat;
     src: url(../fonts/Montserrat.ttf);
 }
+:root{
+    --index: calc(1vh * 1vw)
+}
 h1, h2, h3, p, a{
     font-family: Montserrat;
 }
@@ -27,9 +30,9 @@ header{
     pointer-events: none;
     transition: 0.5s all;
 }
-.pop-up-bg.active { /* При добавлении класса 'active' */
-    opacity: 1; /* Показываем фон и попап */
-    pointer-events: all; /* Возвращаем события */
+.pop-up-bg.active {
+    opacity: 1; 
+    pointer-events: all; 
     transition: 0.5s all;
 }
 .pop-up{
