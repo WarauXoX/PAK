@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat.ttf);
+}
+h1, h2, h3, p, button, select, a{
+    font-family: Montserrat;
+}
+header{
+    background: #545AF8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header h1, header p, header a{
+    color: white;
+    margin: 2vh 7vw;
+}
+.title{
+    margin: 1em 0;
+}
+.registration{
+    margin: 0 10vw;  
+    display: flex;
+}
+.registration div{
+    margin-bottom: em;
+    width: 25%;
+}
+.registration input{
+    padding: .8vh .5vw;
+    margin-bottom: 2em;
+    border: 1px solid #B1B1B1;
+    width: 11.3vw;
+    height: 2.5vh;
+}
+::placeholder{
+    color: #B1B1B1
+}
+.sex{
+    display: flex;
+}
+.sex input[type="radio"]{
+    display: none;
+}
+.sex label{
+    padding: 1.7vh 1.42vw;
+    border: solid 1px #B1B1B1;
+    cursor: pointer;
+}
+#man:checked ~ label#manlab,
+#women:checked ~ label#womlab{ 
+    background-color: #545AF8;
+    color: white
+}
+.select{
+    position: relative;
+    display: inline-block;
+}
+.select select{
+    width: 17.8em;
+    border: #D9D9D9 solid 1px;
+    padding: 1em;
+}
+.select:after {
+    content: "▼";
+    font-size: .8em;
+    position: absolute;
+    left: 16.9em;
+    top: 1.2em;
+    z-index: 1;
+    color: #D9D9D9; 
+    pointer-events: none;
+    box-sizing: border-box;
+  }
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+#city, #birthdate, #course{
+    color: #B1B1B1;
+}
+#birthdate{
+    padding: .7vh .7vw;
+    width: 10.8vw;
+    height: 2.5vh;
+}
+footer{
+    margin-top: 11.85vh;
+    background-color: #545AF8;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 2em .5em;
+}
+footer div{
+    display: flex;
+}
+footer div p{
+    margin: 0em 2.5em;
+}
+.error{
+    color: rgb(210, 28, 28);
+    max-width: max-content;
+    font-size: .5em;
+}

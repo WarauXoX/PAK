@@ -1,0 +1,209 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat.ttf);
+}
+h1, h2, h3, p, a{
+    font-family: Montserrat;
+}
+header{
+    background: #545AF8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.pop-up-bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s all;
+}
+.pop-up-bg.active { /* При добавлении класса 'active' */
+    opacity: 1; /* Показываем фон и попап */
+    pointer-events: all; /* Возвращаем события */
+    transition: 0.5s all;
+}
+.pop-up{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background: #fff;
+    width: 25vw;
+    height: auto;
+    padding: 25px;
+    box-shadow: -.25em .25em 50px  rgb(109, 108, 108);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s all;
+}
+.popup.active{
+    transition: 0.5s all;
+}
+.pop-up > form{
+    background-color: white;
+    text-align: center;
+    padding: 2% 5%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.pop-up > form > h2{
+    margin-bottom:2em;
+}
+.pop-up > form > input{
+    display: flex;
+    padding: 5% 5%;
+    width: 100%;
+    margin: 5%;
+}
+#preResPass{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    width: 110%;
+}
+#ResPass{
+    color: #BABABA;
+    margin-bottom: 2em;
+}
+.aunth{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: baseline
+}
+.aunth a{
+    color: black;
+    text-decoration: none;
+}
+.aunth button{
+    padding: 1em 2em;
+    background-color: #545AF8;
+    color:white;
+    border: none;
+    border-radius: .5em;
+    cursor: pointer;
+}
+header p{
+    cursor: pointer;
+}
+header h1, header p{
+    color: white;
+    margin: 2vh 7vw;
+}
+.main{
+    display: flex;
+    margin-bottom: 7em;
+    padding: 10vh 5vw;
+}
+.main h1{
+    font-size: 4vw;
+    margin-bottom: .7em;
+}
+.secondary{
+    color: #BABABA;
+    margin-bottom: 2em;
+    font-size: 1.2vw;
+}
+#start{
+    cursor: pointer;
+    background: #545AF8;
+    border-radius: 7px;
+    padding: 2vh 3.5vw;
+    color: white;
+    font-size: 16px;
+    border: none;
+}
+#text{
+    max-width: 60vw;
+    margin-right: 1vw;
+}
+#block{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#InfSec{
+    padding: .5em;
+    border: 2px solid #4EBC66;
+    margin: 4vh 0;
+    border-radius: .4em;
+ 
+}
+#ProgFrbus{
+    padding: .5em;
+    border: 2px solid #5CE1EA;
+    border-radius: .4em;
+}
+#Web{
+    padding: .5em;
+    border: 2px solid #ED4194;
+    margin: 4vh 0;
+    border-radius: .4em;
+}
+.AbtUs{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2vw;
+}
+.AbtUs div{
+    padding: 4%;
+    margin: 2em;
+    width: 50%;
+}
+.AbtUs h2{
+    margin-bottom: 1em;
+}
+.title{
+    margin: 1.5em 2.5em;
+}
+.process{
+    display: flex;
+    margin-bottom: 5em;
+}
+.process h3{
+    margin: .5em 0;
+    text-align: center;
+}
+.process div{
+    margin: 0 2em;
+    width: 40%;
+    text-align: center;
+}
+.process hr{
+    transform: rotate(90deg);
+    margin-top: 10dvh;
+    border: .1em solid;
+    border-radius: 10px;
+    max-height: 5dvh;
+}
+footer{
+    background-color: #545AF8;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 2em .5em;
+}
+footer div{
+    display: flex;
+}
+footer div p{
+    margin: 0em 2.5em;
+}
+.space{
+    height: 83dvh;
+}
