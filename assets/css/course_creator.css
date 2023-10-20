@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat.ttf);
+}
+:root{
+    --index: calc(1vw + 1vh);
+}
+h1, h2, h3, p, a{
+    font-family: Montserrat;
+}
+header{
+    background: #545AF8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+header h1, header a{
+    color: white;
+    margin: 2vh 5vw;
+}
+header a{
+    font-size: 1em;
+    text-decoration: none;
+
+}
+.teachers-header{
+    display:flex;
+    justify-content: space-between;
+    margin: 5vh 5vw;
+
+}
+#courses{
+    margin: 0 calc(var(--index));
+    color: #dbdbdb;
+    text-decoration: none;
+}
+#requests{
+    color: #dbdbdb
+}
+.naming-course{
+    margin: 0 5vw;
+}
+.naming-course input{
+    margin: calc(var(--index)/1.2) 0;
+    padding: .8vh .5vw;
+    margin-bottom: 2em;
+    border: 1px solid #B1B1B1;
+    width: 17.3vw;
+    height: 2.5vh;
+}
+.course-constructor{
+    margin: 0 calc(var(--index)*3.3) calc(var(--index)*10);
+    display: flex;
+    flex-direction: column;
+}
+.left-block, .right-block-add, .left-block-add{
+    width: calc(var(--index)*18);
+    padding: calc(var(--index)*5);
+    border: #dbdbdb dashed 2px;
+    text-align: center;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+#plus{
+    color: #dbdbdb;
+    font-size: 10em;
+}
+.pop-up-bg{
+    position: absolute;
+    top: 32vh;
+    left: 4vw;
+    width: 50%;
+    height: 50vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s all;
+}
+.pop-up-bg.active {
+    opacity: 1; 
+    pointer-events: all; 
+    transition: 0.5s all;
+}
+.pop-up{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background: #fff;
+    width: 25vw;
+    height: auto;
+    padding: 25px;
+    box-shadow: -.25em .25em 50px  rgb(109, 108, 108);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s all;
+}
+.popup.active{
+    transition: 0.5s all;
+}
+
+
+
+
+
+
+
+footer{
+    background-color: #545AF8;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 2em .5em;
+}
+footer div{
+    display: flex;
+}
+footer div p{
+    margin: 0em 2.5em;
+}
