@@ -73,40 +73,24 @@ header a{
     color: #dbdbdb;
     font-size: 10em;
 }
-.pop-up-bg{
-    position: absolute;
-    top: 32vh;
-    left: 4vw;
-    width: 50%;
-    height: 50vh;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.5s all;
+.chosing button{
+    
 }
-.pop-up-bg.active {
-    opacity: 1; 
-    pointer-events: all; 
-    transition: 0.5s all;
+/* .left-block{
+    content: " ";
+    width: 42vw;
+    height: 40vh;
+    border: dashed #dbdbdb 2px;
 }
 .pop-up{
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    background: #fff;
-    width: 25vw;
-    height: auto;
-    padding: 25px;
-    box-shadow: -.25em .25em 50px  rgb(109, 108, 108);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s all;
+    padding: 2vh 5vw;
+    opacity: 0;
+    z-index: 0;
 }
-.popup.active{
-    transition: 0.5s all;
-}
-
+.left-block hover ~.pop-up{
+    opacity: 1;
+    z-index: 1;
+} */
 
 
 
