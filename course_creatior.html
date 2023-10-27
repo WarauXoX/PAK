@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/course_creator.css">
     <title>Конструктор курса</title>
+
+    <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -26,7 +29,21 @@
     </section>
     <section class="course-constructor">
         
-        <div class="row">
+        <table>
+            <tr class="block" id="row_1">
+                <td class="block_left"><span class="elem" id="1">Выберете блок</span></td>
+                <td class="block_right"><span class="elem" id="1">+</span></td>
+            </tr>
+            <tr class="block" id="row_2">
+                <td class="block_left" onclick="addClassicBlocks('2')"><span class="elem" id="1">+</span></td>
+
+            </tr>
+            
+        </table>
+
+
+
+        <!-- <div class="row">
             
             <div class="left-block" id="1">
                 <span class="elem" id="1">Выберете блок</span>
@@ -37,7 +54,7 @@
         </div>
         <div class="row">
             <div class="left-block-add"><p id="plus">+</p></div>
-        </div>
+        </div> -->
     </section>
     <footer>
         <div>
@@ -49,6 +66,18 @@
             <p>Тех. Поддержка</p>
         </div>
     </footer>
-    <script src="assets/JS/script.js"></script>
+    
+        <!-- Main Quill library -->
+    <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+    <!-- Theme included stylesheets -->
+
+
+    <!-- Core build with no theme, formatting, non-essential modules -->
+    <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
+    <script src="//cdn.quilljs.com/1.3.6/quill.core.js"></script>
+
+    <script src="assets/JS/course-constuctor.js"></script>
 </body>
 </html>

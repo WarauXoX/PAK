@@ -59,7 +59,7 @@ header a{
     display: flex;
     flex-direction: column;
 }
-.left-block, .right-block-add, .left-block-add{
+.block > td{
     width: calc(var(--index)*28);
     border: #dbdbdb dashed 2px;
     text-align: center;
