@@ -81,7 +81,7 @@ select{
     -moz-appearance: none;
     appearance: none;
 }
-#city, #birthdate, #course{
+#city, #birthdate{
     color: #B1B1B1;
 }
 #birthdate{
