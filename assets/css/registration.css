@@ -103,8 +103,8 @@ footer div{
 footer div p{
     margin: 0em 2.5em;
 }
-.error{
+div .error, .error{
     color: rgb(210, 28, 28);
     max-width: max-content;
-    font-size: .5em;
+    font-size: .7em;
 }
