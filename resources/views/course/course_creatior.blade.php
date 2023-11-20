@@ -35,7 +35,7 @@
                     <td class="left-block"><span class="elem" id="1">+</span></td>
                 </tr>
 
-                <tr class="block adder">
+                <tr class="block adder" id="adder">
                     <td><span class="elem" id="1">  +  </span></td>
                 </tr>
 
@@ -71,13 +71,16 @@
         </tr>`;
     </script>
     <script>
-        function adder(){
-            $def = $(default_block);
-            $def.attr('id', `row_${id}`)
-            $('.adder').click( ()=>{
-                $('.adder').before(default_block);
-            })
+        function adder(id){
+            let def = $(default_block);
+            def.attr('id', `row_${id}`)
+            $('tr#adder').before(def);
         }
+
+        $('#adder').click( ()=>{
+            let id = parseInt( $('tr[id!="adder"]:last').attr('id').split('_')[1] );
+            adder(id+1)});
     </script>
+
 @endsection
 
