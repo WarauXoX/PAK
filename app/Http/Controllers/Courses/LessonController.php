@@ -35,16 +35,14 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-        dd(111);
-
         $data = $request->validate([
             'title' => 'string',
             'course_id' => 'numeric',
         ]);
 
-        $lesson = Lesson::create($data);
+        $lesson = Lesson::firstOrCreate($data);
 
-
+        return $lesson;
     }
 
     /**

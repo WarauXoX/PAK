@@ -45,17 +45,19 @@ class CourseController extends Controller
     {
 
         $data = $request->validate([
-            'title_course' => 'string',
+            'title' => 'string',
         ]);
 
-        $course = Course::create([
-            'title' => $data['title_course'],
+        $course = Course::firstOrCreate([
+            'title' => $data['title'],
             'user_id' => auth()->user()->id,
         ]);
-        $request->request->add(['course_id' => $course->id]);
-        return redirect()->route('lessons.store');
+        return $course;
     }
-
+    public function getLesson(Request $request){
+        $lessons = Course::find($request->course_id)->lessons;
+        return $lessons;
+    }
     /**
      * Display the specified resource.
      */
