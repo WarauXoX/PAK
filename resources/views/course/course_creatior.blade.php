@@ -79,11 +79,5 @@
             })
         }
     </script>
-
-    <script>
-        $.ajax({
-
-        })
-    </script>
 @endsection
 
