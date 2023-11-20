@@ -71,7 +71,7 @@
             constructor(props) {
                 this.course = {};
                 this.lesson = {};
-
+                this.rows = [];
             }
 
             setCourse(){
@@ -116,6 +116,18 @@
                 });
             }
 
+            getRows(){
+                $.ajax({
+                    url:'{!! route('lessons.getRows') !!}',
+                    data:{
+                       lesson_id: page.lesson.id,
+                    },
+                    method:"POST",
+                    success: (res) => {
+                        page.rows = res;
+                    }
+                });
+            }
 
 
         }

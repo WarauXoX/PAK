@@ -56,6 +56,8 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
         Route::post('/', [LessonController::class, 'store',])->name('lessons.store');
         Route::put('/{id}', [LessonController::class, 'update',])->name('lessons.update');
         Route::delete('/{id}', [LessonController::class, 'delete',])->name('lessons.delete');
+
+        Route::post('/getRows', [LessonController::class, 'getRows',])->name('lessons.getRows');
     });
     Route::group(['prefix' => 'row'], function () {
         Route::get('/', [RowController::class, 'index'])->name('rows.index');

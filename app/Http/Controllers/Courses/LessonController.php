@@ -44,6 +44,10 @@ class LessonController extends Controller
 
         return $lesson;
     }
+    public function getRows(Request $request){
+        $rows = Lesson::find($request->lesson_id)->rows;
+        return $rows;
+    }
 
     /**
      * Display the specified resource.
