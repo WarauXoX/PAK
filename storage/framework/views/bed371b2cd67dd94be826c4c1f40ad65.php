@@ -2,7 +2,9 @@
 
 
 <?php $__env->startSection('links'); ?>
+
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/registration.css')); ?>">
+
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -271,9 +273,10 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                        <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($message); ?></strong>
-                                    </span>
+                        <div class="error" >
+                            <?php echo e($message); ?>
+
+                        </div>
                         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -290,50 +293,6 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                 </div>
             </div>
-
-            <div>
-                <p class="title">Выберите курс</p>
-                <div class="select">
-                    <select name="course" id="course">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                    <?php $__errorArgs = ['cource'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                    <span>
-                    <strong class="error">$<?php echo e($message); ?></strong>
-                </span>
-                    <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                </div>
-                <p class="title">выберите группу</p>
-                <div class="select">
-                    <select name="group_id" id="group">
-
-                        <?php $__currentLoopData = \App\Models\Group::all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $group): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($group->id); ?>"><?php echo e($group->title); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                    </select>
-                    <?php $__errorArgs = ['group'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                        <span>
-                            <strong class="error">$<?php echo e($message); ?></strong>
-                        </span>
-                    <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
                 </div>
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">
@@ -349,7 +308,38 @@ unset($__errorArgs, $__bag); ?>
 
 
     </form>
+
+
+
+
+    <div class="pop-up-bg">
+        <div class="pop-up">
+            <form action="<?php echo e(route( "login" )); ?>" method="POST">
+                <?php echo csrf_field(); ?>
+                <h2>Вход в систему ПАК</h2>
+                <input name="email" placeholder="Ваш E-mail" />
+                <input name="password" placeholder="пароль" />
+                <div id="preResPass">
+                    <a href="#" id="ResPass">Забыли пороль</a>
+                </div>
+                <div class="aunth">
+                    <button type="submit">Войти</button>
+                    <a href="registration.html">Регистрация</a>
+                </div>
+            </form>
+        </div>
+        <div>
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('scripts'); ?>
+    <script src="<?php echo e(asset('assets/JS/script.js')); ?>"></script>
+
+    <script>
+        $('.pop-up-bg').hide();
+        $('#start').click(function(){
+            console.log($('#start').check);
+        });
+    </script>
+<?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.PAKH', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\user\PhpstormProjects\PAK\resources\views/auth/register.blade.php ENDPATH**/ ?>

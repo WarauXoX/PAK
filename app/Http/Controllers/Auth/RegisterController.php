@@ -61,8 +61,6 @@ class RegisterController extends Controller
 
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
 
-            'course' => ['integer'],
-            'group_id' => ['string'],
             'city' => ['string'],
             'role' => ['string'],
         ]);
@@ -88,8 +86,6 @@ class RegisterController extends Controller
 
             'email' => $data['email'],
 
-            'group_id' => $data['group_id'],
-            'course' => $data['course'],
             'role_id' => $data['role'],
             'city' => $data['city'],
             'phone' => $data['phone'],

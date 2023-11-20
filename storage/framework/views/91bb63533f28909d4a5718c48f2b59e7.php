@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
     <?php echo $__env->yieldContent('links'); ?>
     <title>регистрация</title>
 </head>
@@ -19,7 +23,7 @@
                 <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                    <?php echo e(__('Logout')); ?>
+                    <?php echo e(__('выход')); ?>
 
                 </a>
 
@@ -29,7 +33,10 @@
             </div>
         <?php else: ?>
             <div class="header-login">
-                <a href="<?php echo e(route('login')); ?>">Войти</a>
+
+                <label for="start" >Вход</label>
+                <input type="radio" id="start">
+
                 <a href="<?php echo e(route('register')); ?>">Регистрация</a>
             </div>
 
@@ -51,6 +58,8 @@
         <p>Тех. Поддержка</p>
     </div>
 </footer>
+
+<?php echo $__env->yieldContent('scripts'); ?>
 </body>
 </html>
 <?php /**PATH C:\Users\user\PhpstormProjects\PAK\resources\views/layouts/PAKH.blade.php ENDPATH**/ ?>

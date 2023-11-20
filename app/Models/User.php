@@ -3,9 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Course\Img;
+use App\Models\Course\Post;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -29,8 +30,6 @@ class User extends Authenticatable
 
         'email',
 
-        'course',
-        'group_id',
         'role_id',
         'city',
         'phone',
@@ -61,16 +60,9 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    // GROUP GROUP GROUP GROUP GROUP
 
-    public function group(){
-        return $this->belongsTo(Group::class);
-    }
 
-    public function posts(){
-        return $this->hasMany(Post::class);
-    }
     public function avatar(){
-        return $this->belongsTo(Avatar::class);
+        return $this->belongsTo(Img::class);
     }
 }

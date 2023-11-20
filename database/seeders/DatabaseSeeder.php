@@ -21,14 +21,15 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        foreach(["ИСП", "РЭУ", "КСК"] as $title){
-            Group::factory(1)->create([
-                'title' => $title,
-            ]);
-        }
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+         \App\Models\User::factory()->create([
+             'name' => 'admin',
+             'surname' => 'admin',
+             'email' => 'test@test.com',
+             'birthdate' => "2004-10-10",
+             "role_id" => 1,
+             'city' => "ЖОПАСРАНСК",
+             'phone' => 123,
+             'avatar' => 'assets/img/avatar/lHMkgk3PFzzrkwcVIkVYXXkMfJXZQzpKzCwSjAfb.jpg'
+         ]);
     }
 }

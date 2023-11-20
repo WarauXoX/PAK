@@ -1,8 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Courses;
 
-use App\Models\Post;
+use App\Http\Controllers\Controller;
+use App\Models\Course\GroupPost;
+use App\Models\Course\Img;
+use App\Models\Course\Post;
+use App\Models\Course\Posttext;
+use App\Models\Group;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,7 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Post::all();
+        $posts = Post::all();
+        return view('course.index', compact(['posts']));
     }
 
     /**
@@ -20,25 +26,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'title' => 'require|string',
-            'user_id' => ['unsignedBigInteger'],
-            'test_id' => ['unsignedBigInteger'],
-            'posttext_id' => ['unsignedBigInteger'],
-            'picture_id' => ['unsignedBigInteger'],
-            'work_id' => ['unsignedBigInteger'],
-            'group_id' => ['unsignedBigInteger'],
-        ]);
 
-        $post = Post::create($data, [
-            'title' => $data['title'],
-            'user_id' => $data['user_id'],
-            'test_id' => $data['test_id'],
-            'posttext_id' => $data['posttext_id'],
-            'picture_id' => $data['picture_id'],
-            'work_id' => $data['work_id'],
-            'group_id' => $data['group_id'],
-        ]);
+
+
+        return redirect(route('course.index'));
     }
 
     /**
@@ -46,7 +37,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('course.show', compact('post'));
     }
 
     /**
@@ -57,11 +48,6 @@ class PostController extends Controller
         $data = $request->validate([
             'title' => 'require|string',
             'user_id' => ['unsignedBigInteger'],
-            'test_id' => ['unsignedBigInteger'],
-            'posttext_id' => ['unsignedBigInteger'],
-            'picture_id' => ['unsignedBigInteger'],
-            'work_id' => ['unsignedBigInteger'],
-            'group_id' => ['unsignedBigInteger'],
         ]);
 
         $post->update($data, [
@@ -80,6 +66,29 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        return $post->delete();
+
+    }
+
+    public function create(){
+        $update = false;
+        $user = auth()->user();
+
+//        $posttext = Posttext::all();
+
+        return view("course.course_creatior", compact(['update',"user"]));
+    }
+
+    public function updater(){
+        $update = true;
+
+        return view("course.course_creatior", compact('update', ));
+    }
+
+    public function creatorP($data){
+        $postD = $data['course'];
+
+        $post = Post::create($postD);
+
     }
 }

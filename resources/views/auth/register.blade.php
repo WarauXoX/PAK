@@ -2,7 +2,9 @@
 @extends('layouts.PAKH')
 
 @section('links')
+
     <link rel="stylesheet" href="{{asset('assets/css/registration.css')}}">
+
 @endsection
 
 @section('content')
@@ -162,9 +164,9 @@
                                autocomplete="new-password" placeholder="{{ __('Password') }}">
 
                         @error('password')
-                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                        <div class="error" >
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -178,36 +180,6 @@
                     </div>
                 </div>
             </div>
-
-            <div>
-                <p class="title">Выберите курс</p>
-                <div class="select">
-                    <select name="course" id="course">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                    @error('cource')
-                    <span>
-                    <strong class="error">${{$message}}</strong>
-                </span>
-                    @enderror
-                </div>
-                <p class="title">выберите группу</p>
-                <div class="select">
-                    <select name="group_id" id="group">
-
-                        @foreach(\App\Models\Group::all() as $group)
-                            <option value="{{$group->id}}">{{$group->title}}</option>
-                        @endforeach
-
-                    </select>
-                    @error('group')
-                        <span>
-                            <strong class="error">${{$message}}</strong>
-                        </span>
-                    @enderror
                 </div>
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">
@@ -222,5 +194,36 @@
 
 
     </form>
+
+
+
+
+    <div class="pop-up-bg">
+        <div class="pop-up">
+            <form action="{{route( "login" )}}" method="POST">
+                @csrf
+                <h2>Вход в систему ПАК</h2>
+                <input name="email" placeholder="Ваш E-mail" />
+                <input name="password" placeholder="пароль" />
+                <div id="preResPass">
+                    <a href="#" id="ResPass">Забыли пороль</a>
+                </div>
+                <div class="aunth">
+                    <button type="submit">Войти</button>
+                    <a href="registration.html">Регистрация</a>
+                </div>
+            </form>
+        </div>
+        <div>
 @endsection
 
+@section('scripts')
+    <script src="{{asset('assets/JS/script.js')}}"></script>
+
+    <script>
+        $('.pop-up-bg').hide();
+        $('#start').click(function(){
+            console.log($('#start').check);
+        });
+    </script>
+@endsection

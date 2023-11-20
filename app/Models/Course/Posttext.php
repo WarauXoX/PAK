@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Course;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Foundation\Http\FormRequest;
 
-class PostText extends Model
+class Posttext extends Model
 {
     use HasFactory;
     protected $guarded = [];
@@ -15,5 +15,7 @@ class PostText extends Model
         return $this->belongsTo(Post::class);
     }
 
-
+    public function createForm(){
+        $form = FormRequest::create(route(""));
+    }
 }

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('group_post', function (Blueprint $table) {
+        Schema::create('rows', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('group_id');
-            $table->unsignedBigInteger('post_id');
+            $table->integer('number');
+            $table->unsignedBigInteger('lesson_id')->nullable();
 
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('group_post');
+        Schema::dropIfExists('rows');
     }
 };

@@ -1,22 +1,50 @@
 
 <?php $__env->startSection('links'); ?>
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
+
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
     <section class="main">
+
         <div id="text">
             <h1>Обучайся самостоятельно в сфере IT</h1>
             <p class="secondary" style="font-size: 1.2em">
                 Закрытая платформа автоматизированных курсов для студентов ГАПОУ СО
                 «ЕТ «АВТОМАТИКА»
             </p>
-            <button id="start">Начать</button>
+            <?php if(auth()->user()): ?>
+                    <a href="  <?php echo route('user.profile'); ?>  ">  начать  </a>
+            <?php else: ?>
+                <button id="start">Начать</button>
+            <?php endif; ?>
+
         </div>
         <div id="block">
             <p id="InfSec">Информационная безопастность</p>
             <p id="ProgFrbus">Программное решение для бизнеса</p>
             <p id="Web">Web разработка</p>
         </div>
+
+        <div class="pop-up-bg">
+            <div class="pop-up">
+                <form action="<?php echo e(route( "login" )); ?>" method="POST">
+                    <?php echo csrf_field(); ?>
+                    <h2>Вход в систему ПАК</h2>
+                    <input name="email" placeholder="Ваш E-mail" />
+                    <input name="password" placeholder="пароль" />
+                    <div id="preResPass">
+                        <a href="#" id="ResPass">Забыли пороль</a>
+                    </div>
+                    <div class="aunth">
+                        <button type="submit">Войти</button>
+                        <a href="registration.html">Регистрация</a>
+                    </div>
+                </form>
+            </div>
+            <div>
+
+
+
 
 
     </section>
@@ -81,6 +109,10 @@
             </p>
         </div>
     </section>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
     <script src="<?php echo e(asset('assets/JS/script.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 

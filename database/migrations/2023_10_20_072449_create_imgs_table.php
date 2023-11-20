@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('imgs', function (Blueprint $table) {
             $table->id();
+
             $table->string('title');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('image_path');
+            $table->unsignedBigInteger('post_id')->nullable();
+
             $table->timestamps();
         });
     }
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('imgs');
     }
 };

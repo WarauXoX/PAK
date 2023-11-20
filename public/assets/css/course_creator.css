@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat.ttf);
+}
+:root{
+    --index: calc(1vw + 1vh);
+}
+h1, h2, h3, p, a, span{
+    font-family: Montserrat;
+}
+header{
+    background: #545AF8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+header h1, header a{
+    color: white;
+    margin: 2vh 5vw;
+}
+header a{
+    font-size: 1em;
+    text-decoration: none;
+
+}
+.teachers-header{
+    display:flex;
+    justify-content: space-between;
+    margin: 5vh 5vw;
+
+}
+#courses{
+    margin: 0 calc(var(--index));
+    color: #dbdbdb;
+    text-decoration: none;
+}
+#requests{
+    color: #dbdbdb
+}
+.naming-course{
+    margin: 0 5vw;
+}
+.naming-course input{
+    margin: calc(var(--index)/1.2) 0;
+    padding: .8vh .5vw;
+    margin-bottom: 2em;
+    border: 1px solid #B1B1B1;
+    width: 17.3vw;
+    height: 2.5vh;
+}
+.course-constructor{
+    margin: 0 calc(var(--index)*3.3) calc(var(--index)*10);
+    display: flex;
+    flex-direction: column;
+}
+.block > td{
+    width: calc(var(--index)*28);
+    border: #dbdbdb dashed 2px;
+    text-align: center;
+    height: calc(var(--index)*12);
+}
+.left-block *{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: inherit;    
+    height: inherit;
+}
+.left-block * > *{
+    width: auto;
+    height: auto;
+    padding: calc(var(--index)/3) calc(var(--index)*1.5);
+    margin: 0 1em;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+#plus{
+    color: #dbdbdb;
+    font-size: 10em;
+}
+
+.buttons{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.buttons > *{
+    border-radius: .4em;
+    background-color: #545AF8;
+    color: white;
+    border: solid 1px #545af8;
+    cursor: pointer;
+}
+
+
+
+
+
+footer{
+    background-color: #545AF8;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 2em .5em;
+}
+footer div{
+    display: flex;
+}
+footer div p{
+    margin: 0em 2.5em;
+}
