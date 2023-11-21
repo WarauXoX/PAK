@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Courses;
+namespace App\Http\Controllers\Courses\Posts;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course\PostText;

@@ -14,8 +14,4 @@ class Posttext extends Model
     public function post(){
         return $this->belongsTo(Post::class);
     }
-
-    public function createForm(){
-        $form = FormRequest::create(route(""));
-    }
 }

@@ -6,6 +6,8 @@
     use App\Http\Controllers\Courses\CourseController;
     use \App\Http\Controllers\Courses\RowController;
     use App\Http\Controllers\Courses\PostController;
+        use App\Http\Controllers\Courses\Posts\PostTextController;
+
 
 	/*
 |--------------------------------------------------------------------------
@@ -68,11 +70,12 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
         Route::delete('/{id}', [RowController::class, 'delete',])->name('rows.delete');
 
     });
-    Route::group(['prefix' => 'text'], function () {
-        Route::get('/', [\App\Http\Controllers\TextController::class, 'index'])->name('post.text.index');
-        Route::get('/{id}', [\App\Http\Controllers\TextController::class, 'show',])->name('post.text.show');
-        Route::post('/', [\App\Http\Controllers\TextController::class, 'store',])->name('post.text.store');
-        Route::put('/{id}', [\App\Http\Controllers\TextController::class, 'update',])->name('post.text.update');
-        Route::delete('/{id}', [\App\Http\Controllers\TextController::class, 'delete',])->name('post.text.delete');
-    });
+    Route::group(['prefix'=> 'posts'], function(){
+        Route::get('/', [PostController::class, 'index'])->name('post.index');
+        Route::post('/', [PostController::class, 'store'])->name('post.store');
 
+        Route::group(['prefix' => 'text'], function(){
+            Route::get('/', [PostTextController::class, 'index'])->name('post.text.index');
+            Route::post('/', [PostTextController::class, 'store'])->name('post.text.store');
+        });
+    });
