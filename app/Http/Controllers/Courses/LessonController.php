@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Courses;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course\Lesson;
+use App\Models\Course\Row;
 use Illuminate\Http\Request;
 
 class LessonController extends Controller
@@ -45,8 +46,14 @@ class LessonController extends Controller
         return $lesson;
     }
     public function getRows(Request $request){
-        $rows = Lesson::find($request->lesson_id)->rows;
-        return $rows;
+        $lesson = Lesson::find($request->lesson_id);
+        $rows = $lesson->rows;
+        $data = [];
+        foreach ($rows as $row){
+            $row->posts = $row->posts;
+            array_push($data, $row);
+        }
+        return $data;
     }
 
     /**

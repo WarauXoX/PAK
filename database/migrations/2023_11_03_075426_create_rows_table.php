@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('rows', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('number');
             $table->unsignedBigInteger('lesson_id')->nullable();
 
             $table->timestamps();

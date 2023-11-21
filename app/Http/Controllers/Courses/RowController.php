@@ -23,10 +23,7 @@ class RowController extends Controller
                 'lesson' => $row->lesson,
             ]);
         }
-        return response()->json([
-            'data' => $rows
-
-        ]);
+        return $data;
     }
 
     /**
@@ -35,20 +32,13 @@ class RowController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'number' => 'integer',
             'lesson_id' => 'numeric|nullable',
-
         ]);
 
         $row = Row::create($data);
+        $posts = $row->posts;
 
-        return response()->json([
-            'data' => [
-                'id' => $row->id,
-                'number' => $row->number,
-                'lesson' => $row->lesson,
-            ]
-        ]);
+        return $row;
     }
 
     /**

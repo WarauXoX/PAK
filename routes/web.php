@@ -48,6 +48,7 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
         Route::put('/{id}', [CourseController::class, 'update',])->name('courses.update');
         Route::delete('/{id}', [CourseController::class, 'delete',])->name('courses.delete');
 
+
         Route::post('/getLes', [CourseController::class, 'getLesson',])->name('courses.getLesson');
     });
     Route::group(['prefix' => 'lesson'], function () {

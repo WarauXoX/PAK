@@ -96,6 +96,7 @@
                         page.course.lessons = res;
                         $('datalist#lessons').html();
                         for(let r of res){
+                            $('datalist#lesson').remove();
                             $('datalist#lessons').append(`<option value=${r.title}></option>`)
                         }
 
@@ -112,6 +113,9 @@
                     method:"POST",
                     success: (res) => {
                         page.lesson = res;
+
+                        page.getRows();
+
                     }
                 });
             }
@@ -124,12 +128,37 @@
                     },
                     method:"POST",
                     success: (res) => {
+                        page.rows = [];
                         page.rows = res;
+
+                        page.updateRows();
+                    }
+                });
+            }
+            setRows(){
+                $.ajax({
+                    url:'{!! route('rows.store') !!}',
+                    method:"POST",
+                    data:{
+                      lesson_id:page.lesson.id,
+                    },
+                    success:(res) => {
+                        adder(res.id);
+                        console.log(res);
+                        page.rows.push(res);
                     }
                 });
             }
 
 
+
+            updateRows(){
+                $('.row').remove();
+                for(let row of page.rows){
+                    console.log(row.id)
+                    adder(row.id);
+                }
+            }
         }
         const page = new Page();
     </script>
@@ -155,8 +184,8 @@
         }
 
         $('#adder').click( ()=>{
-            let id = parseInt( $('tr[id!="adder"]:last').attr('id').split('_')[1] );
-            adder(id+1)});
+            page.setRows();
+        });
     </script>
 
     <script>
@@ -168,6 +197,7 @@
             event.preventDefault();
             page.setLesson();
         });
+
 
     </script>
 
