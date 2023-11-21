@@ -18,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('course.index', compact(['posts']));
+        return $posts;
     }
 
     /**
@@ -26,8 +26,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
-
+        $data = $request->validate([
+            'row_id' => 'required',
+            'side' => 'numeric',
+        ]);
+        $post = Post::create();
 
         return redirect(route('course.index'));
     }

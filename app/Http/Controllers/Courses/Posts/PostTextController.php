@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Courses\Posts;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course\PostText;
+use App\Models\Course\Row;
 use Illuminate\Http\Request;
 
 class PostTextController extends Controller
@@ -70,5 +71,9 @@ class PostTextController extends Controller
     public function destroy(Posttext $postText)
     {
         //
+    }
+
+    public function create(Request $request){
+
     }
 }

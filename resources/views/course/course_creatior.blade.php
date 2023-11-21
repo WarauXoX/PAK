@@ -7,6 +7,7 @@
 {{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">--}}
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <title>Создание курса</title>
 @endsection
 
 @section("content")
@@ -30,13 +31,12 @@
     </form>
         <hr width="47.5%">
 
-    </section>
 
 
 
     <section class="course-constructor">
 
-            <table cols="2">
+            <table>
                 <tr class="block row" id="row_1">
                     <td  class="left-block"><span class="elem" id="1">Выберете блок</span></td>
                     <td class="left-block"><span class="elem" id="1">+</span></td>
@@ -50,7 +50,7 @@
             <input type="submit" value="submit">
 
         </section>
-    </form>
+
 
 
 
@@ -72,6 +72,14 @@
                 this.course = {};
                 this.lesson = {};
                 this.rows = [];
+
+                this.buttons = [
+                    {
+                        url:'{!! route('post.text.create') !!}',
+                        method:'POST'
+                    },
+
+                ];
             }
 
             setCourse(){
@@ -144,7 +152,6 @@
                     },
                     success:(res) => {
                         adder(res.id);
-                        console.log(res);
                         page.rows.push(res);
                     }
                 });
@@ -159,6 +166,14 @@
                     adder(row.id);
                 }
             }
+
+            setButtons(obj){
+                for(let but of buttons){
+                    let button =
+                    $(obj).html(' ');
+                    $(obj).append()
+                }
+            }
         }
         const page = new Page();
     </script>
@@ -170,16 +185,37 @@
         });
     </script>
     <script>
-        let default_block = `<tr class="block row" >
-            <td class="left-block"><span class="elem" id="1">Выберете блок</span></td>
-            <td class="left-block"><span class="elem" id="1">+</span></td>
-        </tr>`;
+        let default_leftlblock = `<td class="left-block"><span class="elem" id="1">Выберете блок</span></td>`
+        let default_rightblock = `<td class="left-block"><span class="elem" id="1">+</span></td>`
+        let default_block = `<tr class="block row" ></tr>`;
     </script>
     <script>
+        function setleftBlock(post){
+            let block = $(default_leftlblock);
+            if(!post){
+                return block
+            }
+            block.html();
+            block.append(post);
+            return block;
+        }
+        function setRightBlock(post){
+            let block = $(default_rightblock);
+            if(!post){
+                return block
+            }
+            block.html();
+            block.append(post);
+            return block;
+        }
 
-        function adder(id){
+        function adder(id, leftPost, rightPost){
             let def = $(default_block);
-            def.attr('id', `row_${id}`)
+            def.attr('id', `row_${id}`);
+            let leftBlock = setleftBlock(leftPost);
+            let rightBlock = setRightBlock(rightPost);
+                def.append(leftBlock);
+                def.append(rightBlock);
             $('tr#adder').before(def);
         }
 
