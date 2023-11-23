@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
 
-            $table->string('title');
-            $table->boolean('left_side');
+//            $table->string('title');
+            $table->boolean('side');
 //            $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('row_id');
 

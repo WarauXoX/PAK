@@ -65,14 +65,16 @@ header a{
     text-align: center;
     height: calc(var(--index)*12);
 }
-.left-block *{
+.left-block *,
+.right-block *{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: inherit;    
+    width: inherit;
     height: inherit;
 }
-.left-block * > *{
+.left-block * > *,
+.right-block * > *{
     width: auto;
     height: auto;
     padding: calc(var(--index)/3) calc(var(--index)*1.5);

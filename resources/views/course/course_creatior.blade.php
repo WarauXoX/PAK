@@ -39,7 +39,7 @@
             <table>
                 <tr class="block row" id="row_1">
                     <td  class="left-block"><span class="elem" id="1"><button>text</button></span></td>
-                    <td class="left-block"><span class="elem" id="1"><button>text</button></span></td>
+                    <td class="right-block"><span class="elem" id="1"><button>text</button></span></td>
                 </tr>
 
                 <tr class="block adder" id="adder">
@@ -131,9 +131,7 @@
                     method:"POST",
                     success: (res) => {
                         page.lesson = res;
-
                         page.getRows();
-
                     }
                 });
             }
@@ -166,17 +164,46 @@
                     }
                 });
             }
-
+            setPost(row_id, side){
+                $.ajax({
+                    url:'{!! route('post.store') !!}',
+                    method:"POST",
+                    data:{
+                        row_id:row_id,
+                        side:side,
+                    },
+                    success: res => {
+                        page.rows[row_id].posts[res.id] = res;
+                    }
+                });
+            }
+            getPost(id){
+                console.log(`{!! route('post.show') !!}`);
+            }
 
 
             updateRows(){
                 $('.row').remove();
                 for(let row of page.rows){
-                    console.log(row.id)
-                    adder(row.id);
+                    console.log(row.id);
+                    let posts = page.updatePosts(row.posts);
+                    adder(row.id, ...posts);
                 }
             }
+            updatePosts(posts){
+                let right_post;
+                let left_post = posts.map( (value)=>{
+                    console.log(value);
+                    if(value.left_side != 0){
+                        right_post = value;
+                    }
+                    else{
+                        return value;
+                    }
+                })
 
+                return [left_post, right_post];
+            }
             setButtons(obj){
                 for(let but of buttons){
                     let button =
@@ -195,23 +222,27 @@
         });
     </script>
     <script>
-        let default_buttons = page.buttons.map( (value, key)=>{
+        let default_buttons = page.buttons.map( (value)=>{
 
             let but = $(`<button id="but_${value.name}">${value.name}</button>`);
             but.on('click', ()=>{value.onclick()});
-
             return but;
         });
 
 
         let default_leftlblock = `<td class="left-block"><span></span></td>`
-        let default_rightblock = `<td class="left-block"><span></span></td>`
+        let default_rightblock = `<td class="right-block"><span></span></td>`
         let default_block = `<tr class="block row" ></tr>`;
     </script>
     <script>
         function setleftBlock(post){
             let block = $(default_leftlblock);
             if(!post){
+                default_buttons.map( (value)=>{
+                    let but = value;
+                    block.html('<span></span>');
+                    block.children().append(value);
+                });
                 return block
             }
             block.html();
@@ -222,12 +253,14 @@
             let block = $(default_rightblock);
             if(!post){
                 default_buttons.map( (value)=>{
-                    block.append(value);
+                    let but = value;
+                    block.html('<span></span>');
+                    block.children().append(but);
                 });
                 return block
             }
-            block.html();
-            block.append(post);
+            block.html(' ');
+            block.append(post.id);
             return block;
         }
 
@@ -239,8 +272,6 @@
                 def.append(leftBlock);
                 def.append(rightBlock);
             $('tr#adder').before(def);
-
-            $(`tr[type!=adder]`).append('hell');
         }
 
         $('#adder').click( ()=>{

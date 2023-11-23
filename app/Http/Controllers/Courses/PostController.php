@@ -30,9 +30,9 @@ class PostController extends Controller
             'row_id' => 'required',
             'side' => 'numeric',
         ]);
-        $post = Post::create();
+        $post = Post::create($data);
 
-        return redirect(route('course.index'));
+        return $post;
     }
 
     /**

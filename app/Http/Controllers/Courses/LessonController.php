@@ -51,6 +51,9 @@ class LessonController extends Controller
         $data = [];
         foreach ($rows as $row){
             $row->posts = $row->posts;
+            foreach ($row->posts as $post) {
+                $post->posttexts;
+            }
             array_push($data, $row);
         }
         return $data;

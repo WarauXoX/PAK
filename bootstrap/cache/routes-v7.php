@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::4NfYRFNH3v5VBhkZ',
+            '_route' => 'generated::yxOhAYWrpS5OZfNg',
           ),
           1 => NULL,
           2 => 
@@ -219,7 +219,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::8DpAaC5VqVy5kvDn',
+            '_route' => 'generated::Ee3YoJzL1dvCKP0d',
           ),
           1 => NULL,
           2 => 
@@ -274,7 +274,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::CB39mvkwJkwJYfW7',
+            '_route' => 'generated::w8Na2vuNHkYjY7NH',
           ),
           1 => NULL,
           2 => 
@@ -365,7 +365,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::RWi5P1EuSyOZyuhc',
+            '_route' => 'generated::HmBukuRuEwgU9zPg',
           ),
           1 => NULL,
           2 => 
@@ -423,7 +423,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::VklS5MB2b8zYpA7e',
+            '_route' => 'generated::0AqYsedzBJwLtQry',
           ),
           1 => NULL,
           2 => 
@@ -581,6 +581,25 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/posts/show' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'post.show',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/posts/text' => 
       array (
         0 => 
@@ -653,7 +672,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::3Qzyp4bOLdG9ZIpP',
+            '_route' => 'generated::RydxDSdfxU5BzfBP',
           ),
           1 => 
           array (
@@ -1056,7 +1075,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::4NfYRFNH3v5VBhkZ' => 
+    'generated::yxOhAYWrpS5OZfNg' => 
     array (
       'methods' => 
       array (
@@ -1079,7 +1098,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::4NfYRFNH3v5VBhkZ',
+        'as' => 'generated::yxOhAYWrpS5OZfNg',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1279,7 +1298,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::8DpAaC5VqVy5kvDn' => 
+    'generated::Ee3YoJzL1dvCKP0d' => 
     array (
       'methods' => 
       array (
@@ -1299,7 +1318,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::8DpAaC5VqVy5kvDn',
+        'as' => 'generated::Ee3YoJzL1dvCKP0d',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1388,7 +1407,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::CB39mvkwJkwJYfW7' => 
+    'generated::w8Na2vuNHkYjY7NH' => 
     array (
       'methods' => 
       array (
@@ -1408,7 +1427,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::CB39mvkwJkwJYfW7',
+        'as' => 'generated::w8Na2vuNHkYjY7NH',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1607,7 +1626,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::RWi5P1EuSyOZyuhc' => 
+    'generated::HmBukuRuEwgU9zPg' => 
     array (
       'methods' => 
       array (
@@ -1627,7 +1646,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::RWi5P1EuSyOZyuhc',
+        'as' => 'generated::HmBukuRuEwgU9zPg',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1716,7 +1735,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::VklS5MB2b8zYpA7e' => 
+    'generated::0AqYsedzBJwLtQry' => 
     array (
       'methods' => 
       array (
@@ -1737,7 +1756,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::VklS5MB2b8zYpA7e',
+        'as' => 'generated::0AqYsedzBJwLtQry',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1753,7 +1772,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::3Qzyp4bOLdG9ZIpP' => 
+    'generated::RydxDSdfxU5BzfBP' => 
     array (
       'methods' => 
       array (
@@ -1774,7 +1793,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::3Qzyp4bOLdG9ZIpP',
+        'as' => 'generated::RydxDSdfxU5BzfBP',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2466,6 +2485,42 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'post.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'post.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'posts/show',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Courses\\PostController@show',
+        'controller' => 'App\\Http\\Controllers\\Courses\\PostController@show',
+        'namespace' => NULL,
+        'prefix' => '/posts',
+        'where' => 
+        array (
+        ),
+        'as' => 'post.show',
       ),
       'fallback' => false,
       'defaults' => 

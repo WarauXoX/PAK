@@ -73,6 +73,7 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
     Route::group(['prefix'=> 'posts'], function(){
         Route::get('/', [PostController::class, 'index'])->name('post.index');
         Route::post('/', [PostController::class, 'store'])->name('post.store');
+        Route::post('/show', [PostController::class, 'show'])->name('post.show');
 
         Route::group(['prefix' => 'text'], function(){
             Route::get('/', [PostTextController::class, 'index'])->name('post.text.index');
