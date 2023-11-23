@@ -38,8 +38,8 @@
 
             <table>
                 <tr class="block row" id="row_1">
-                    <td  class="left-block"><span class="elem" id="1">Выберете блок</span></td>
-                    <td class="left-block"><span class="elem" id="1">+</span></td>
+                    <td  class="left-block"><span class="elem" id="1"><button>text</button></span></td>
+                    <td class="left-block"><span class="elem" id="1"><button>text</button></span></td>
                 </tr>
 
                 <tr class="block adder" id="adder">
@@ -75,8 +75,18 @@
 
                 this.buttons = [
                     {
-                        url:'{!! route('post.text.create') !!}',
-                        method:'POST'
+                        url:'{!! route('post.text.store') !!}',
+                        method:'POST',
+                        name:'text',
+                        onclick: function (e){
+                            console.log(e.target)
+                        },
+                        ajax:$.ajax({
+                            url:this.url,
+                            method:this.method,
+                            data:FormData,
+                            succes:this.succes,
+                        })
                     },
 
                 ];
@@ -185,8 +195,17 @@
         });
     </script>
     <script>
-        let default_leftlblock = `<td class="left-block"><span class="elem" id="1">Выберете блок</span></td>`
-        let default_rightblock = `<td class="left-block"><span class="elem" id="1">+</span></td>`
+        let default_buttons = page.buttons.map( (value, key)=>{
+
+            let but = $(`<button id="but_${value.name}">${value.name}</button>`);
+            but.on('click', ()=>{value.onclick()});
+
+            return but;
+        });
+
+
+        let default_leftlblock = `<td class="left-block"><span></span></td>`
+        let default_rightblock = `<td class="left-block"><span></span></td>`
         let default_block = `<tr class="block row" ></tr>`;
     </script>
     <script>
@@ -202,6 +221,9 @@
         function setRightBlock(post){
             let block = $(default_rightblock);
             if(!post){
+                default_buttons.map( (value)=>{
+                    block.append(value);
+                });
                 return block
             }
             block.html();
@@ -217,6 +239,8 @@
                 def.append(leftBlock);
                 def.append(rightBlock);
             $('tr#adder').before(def);
+
+            $(`tr[type!=adder]`).append('hell');
         }
 
         $('#adder').click( ()=>{
@@ -233,7 +257,6 @@
             event.preventDefault();
             page.setLesson();
         });
-
 
     </script>
 
