@@ -222,43 +222,38 @@
         });
     </script>
     <script>
-        let default_buttons = page.buttons.map( (value)=>{
-
-            let but = $(`<button id="but_${value.name}">${value.name}</button>`);
-            but.on('click', ()=>{value.onclick()});
-            return but;
-        });
-
-
         let default_leftlblock = `<td class="left-block"><span></span></td>`
         let default_rightblock = `<td class="right-block"><span></span></td>`
         let default_block = `<tr class="block row" ></tr>`;
     </script>
     <script>
-        function setleftBlock(post){
+            function setleftBlock(post){                 /*-->  SetLeftBlock  <--*/
             let block = $(default_leftlblock);
             if(!post){
-                default_buttons.map( (value)=>{
-                    let but = value;
-                    block.html('<span></span>');
-                    block.children().append(value);
-                });
-                return block
-            }
-            block.html();
-            block.append(post);
-            return block;
-        }
-        function setRightBlock(post){
-            let block = $(default_rightblock);
-            if(!post){
-                default_buttons.map( (value)=>{
-                    let but = value;
+                page.buttons.map( (value)=>{
+                    let but = $(`<button id="but_${value.name}">${value.name}</button>`);
+                    but.on('click', ()=>{value.onclick()});
                     block.html('<span></span>');
                     block.children().append(but);
                 });
                 return block
             }
+            block.html(" ");
+            block.append(post);
+            return block;
+        }
+        function setRightBlock(post){                       /*-->  SetRightBlock  <--*/
+            let block = $(default_rightblock);
+            if(typeof(post) == "null"){
+                page.buttons.map( (value)=>{
+                    let but = $(`<button id="but_${value.name}">${value.name}</button>`);
+                    but.on('click', ()=>{value.onclick()});
+                    block.html('<span></span>');
+                    block.children().append(but);
+                });
+                return block
+            }
+
             block.html(' ');
             block.append(post.id);
             return block;
