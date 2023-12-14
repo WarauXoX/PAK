@@ -57,11 +57,10 @@ class RowController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Row $row)
+    public function update(Request $request)
     {
-        $row->fill($request->except(['course_id']));
-        $row->save();
-        return response()->json($row);
+        $row = Row::first($request->id);
+        dd($row);
     }
 
     /**

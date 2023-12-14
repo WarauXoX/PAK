@@ -13,7 +13,7 @@
                 «ЕТ «АВТОМАТИКА»
             </p>
             @if(auth()->user())
-                    <a href="  {!!  route('user.profile')  !!}  ">  начать  </a>
+                    <a href="  {!!  route('home.profile')  !!}  ">  начать  </a>
             @else
                 <button id="start">Начать</button>
             @endif

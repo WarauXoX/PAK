@@ -7,6 +7,7 @@
     use \App\Http\Controllers\Courses\RowController;
     use App\Http\Controllers\Courses\PostController;
         use App\Http\Controllers\Courses\Posts\PostTextController;
+        use App\Http\Controllers\Courses\Factory;
 
 
 	/*
@@ -66,7 +67,7 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
         Route::get('/', [RowController::class, 'index'])->name('rows.index');
         Route::get('/{id}', [RowController::class, 'show',])->name('rows.show');
         Route::post('/', [RowController::class, 'store',])->name('rows.store');
-        Route::put('/{id}', [RowController::class, 'update',])->name('rows.update');
+        Route::put('/', [RowController::class, 'update',])->name('rows.update');
         Route::delete('/{id}', [RowController::class, 'delete',])->name('rows.delete');
 
     });
@@ -76,7 +77,13 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
         Route::post('/show', [PostController::class, 'show'])->name('post.show');
 
         Route::group(['prefix' => 'text'], function(){
-            Route::get('/', [PostTextController::class, 'index'])->name('post.text.index');
-            Route::post('/', [PostTextController::class, 'store'])->name('post.text.store');
+            Route::get('/', [PostTextController::class, 'index'])->name('posttext.index');
+            Route::post('/', [PostTextController::class, 'store'])->name('posttext.store');
         });
     });
+    Route::resource('/text', TextController::class);
+
+    Route::post('/post/show', [Factory::class, 'showChildren'])->name('posts.show');
+    Route::post('/post/text', [Factory::class, 'storeText'])->name('post.text.store');
+    Route::patch('/post/text/update', [Factory::class, 'updateText'])->name('post.text.update');
+

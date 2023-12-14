@@ -18,7 +18,7 @@ class CourseController extends Controller
 
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::where(["user_id", auth()->user()->id]);
 
         $data = [];
         foreach ($courses as $course){
@@ -30,12 +30,7 @@ class CourseController extends Controller
         }
         return response()->json([
             'data' => $data
-
         ]);
-
-
-
-
     }
 
     /**

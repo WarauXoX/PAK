@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::yxOhAYWrpS5OZfNg',
+            '_route' => 'generated::urYMaiqyU02E2lSO',
           ),
           1 => NULL,
           2 => 
@@ -219,7 +219,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Ee3YoJzL1dvCKP0d',
+            '_route' => 'generated::Yzdj1oZugYlKXgVe',
           ),
           1 => NULL,
           2 => 
@@ -274,7 +274,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::w8Na2vuNHkYjY7NH',
+            '_route' => 'generated::oJhmCcX6U9LySwmB',
           ),
           1 => NULL,
           2 => 
@@ -365,7 +365,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::HmBukuRuEwgU9zPg',
+            '_route' => 'generated::u3AzzwVigwsYNTAt',
           ),
           1 => NULL,
           2 => 
@@ -423,7 +423,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::0AqYsedzBJwLtQry',
+            '_route' => 'generated::LhbzFVvz91RbAD6l',
           ),
           1 => NULL,
           2 => 
@@ -544,6 +544,22 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
+        2 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'rows.update',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
       ),
       '/posts' => 
       array (
@@ -606,7 +622,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'post.text.index',
+            '_route' => 'posttext.index',
           ),
           1 => NULL,
           2 => 
@@ -623,6 +639,100 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+            '_route' => 'posttext.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/text' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'text.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'text.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/text/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'text.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/post/show' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'posts.show',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/post/text' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
             '_route' => 'post.text.store',
           ),
           1 => NULL,
@@ -636,10 +746,29 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/post/text/update' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'post.text.update',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'PATCH' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
-      0 => '{^(?|/password/reset/([^/]++)(*:31)|/student/course/([^/]++)(*:62)|/course/(?|([^/]++)(?|(*:91))|getLes(*:105))|/lesson/(?|([^/]++)(?|(*:136))|getRows(*:152))|/row/([^/]++)(?|(*:177)))/?$}sDu',
+      0 => '{^(?|/password/reset/([^/]++)(*:31)|/student/course/([^/]++)(*:62)|/course/(?|([^/]++)(?|(*:91))|getLes(*:105))|/lesson/(?|([^/]++)(?|(*:136))|getRows(*:152))|/row/([^/]++)(?|(*:177))|/text/([^/]++)(?|(*:203)|/edit(*:216)|(*:224)))/?$}sDu',
     ),
     3 => 
     array (
@@ -672,7 +801,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::RydxDSdfxU5BzfBP',
+            '_route' => 'generated::3zozoe2D1AtZ16g6',
           ),
           1 => 
           array (
@@ -879,25 +1008,6 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'rows.update',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
             '_route' => 'rows.delete',
           ),
           1 => 
@@ -913,7 +1023,95 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        3 => 
+      ),
+      203 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'text.show',
+          ),
+          1 => 
+          array (
+            0 => 'text',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      216 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'text.edit',
+          ),
+          1 => 
+          array (
+            0 => 'text',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      224 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'text.update',
+          ),
+          1 => 
+          array (
+            0 => 'text',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'text.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'text',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        2 => 
         array (
           0 => NULL,
           1 => NULL,
@@ -1075,7 +1273,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::yxOhAYWrpS5OZfNg' => 
+    'generated::urYMaiqyU02E2lSO' => 
     array (
       'methods' => 
       array (
@@ -1092,13 +1290,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:82:"function (\\Illuminate\\Http\\Request $request) {
     return \\auth()->user()->name;
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000003710000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000075c0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::yxOhAYWrpS5OZfNg',
+        'as' => 'generated::urYMaiqyU02E2lSO',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1128,7 +1326,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:36:"function () {return \\view(\'index\');}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000003730000000000000000";}}',
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:36:"function () {return \\view(\'index\');}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000075e0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -1298,7 +1496,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Ee3YoJzL1dvCKP0d' => 
+    'generated::Yzdj1oZugYlKXgVe' => 
     array (
       'methods' => 
       array (
@@ -1318,7 +1516,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Ee3YoJzL1dvCKP0d',
+        'as' => 'generated::Yzdj1oZugYlKXgVe',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1407,7 +1605,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::w8Na2vuNHkYjY7NH' => 
+    'generated::oJhmCcX6U9LySwmB' => 
     array (
       'methods' => 
       array (
@@ -1427,7 +1625,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::w8Na2vuNHkYjY7NH',
+        'as' => 'generated::oJhmCcX6U9LySwmB',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1626,7 +1824,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::HmBukuRuEwgU9zPg' => 
+    'generated::u3AzzwVigwsYNTAt' => 
     array (
       'methods' => 
       array (
@@ -1646,7 +1844,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::HmBukuRuEwgU9zPg',
+        'as' => 'generated::u3AzzwVigwsYNTAt',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1735,7 +1933,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::0AqYsedzBJwLtQry' => 
+    'generated::LhbzFVvz91RbAD6l' => 
     array (
       'methods' => 
       array (
@@ -1756,7 +1954,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::0AqYsedzBJwLtQry',
+        'as' => 'generated::LhbzFVvz91RbAD6l',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1772,7 +1970,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::RydxDSdfxU5BzfBP' => 
+    'generated::3zozoe2D1AtZ16g6' => 
     array (
       'methods' => 
       array (
@@ -1793,7 +1991,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::RydxDSdfxU5BzfBP',
+        'as' => 'generated::3zozoe2D1AtZ16g6',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2361,7 +2559,7 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'PUT',
       ),
-      'uri' => 'row/{id}',
+      'uri' => 'row',
       'action' => 
       array (
         'middleware' => 
@@ -2536,7 +2734,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'post.text.index' => 
+    'posttext.index' => 
     array (
       'methods' => 
       array (
@@ -2557,7 +2755,336 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'post.text.index',
+        'as' => 'posttext.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'posttext.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'posts/text',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Courses\\Posts\\PostTextController@store',
+        'controller' => 'App\\Http\\Controllers\\Courses\\Posts\\PostTextController@store',
+        'namespace' => NULL,
+        'prefix' => 'posts/text',
+        'where' => 
+        array (
+        ),
+        'as' => 'posttext.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'text.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'text',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'as' => 'text.index',
+        'uses' => 'TextController@index',
+        'controller' => 'TextController@index',
+        'namespace' => NULL,
+        'prefix' => '/',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'text.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'text/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'as' => 'text.create',
+        'uses' => 'TextController@create',
+        'controller' => 'TextController@create',
+        'namespace' => NULL,
+        'prefix' => '/',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'text.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'text',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'as' => 'text.store',
+        'uses' => 'TextController@store',
+        'controller' => 'TextController@store',
+        'namespace' => NULL,
+        'prefix' => '/',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'text.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'text/{text}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'as' => 'text.show',
+        'uses' => 'TextController@show',
+        'controller' => 'TextController@show',
+        'namespace' => NULL,
+        'prefix' => '/',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'text.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'text/{text}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'as' => 'text.edit',
+        'uses' => 'TextController@edit',
+        'controller' => 'TextController@edit',
+        'namespace' => NULL,
+        'prefix' => '/',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'text.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'text/{text}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'as' => 'text.update',
+        'uses' => 'TextController@update',
+        'controller' => 'TextController@update',
+        'namespace' => NULL,
+        'prefix' => '/',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'text.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'text/{text}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'as' => 'text.destroy',
+        'uses' => 'TextController@destroy',
+        'controller' => 'TextController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'posts.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'post/show',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Courses\\Factory@showChildren',
+        'controller' => 'App\\Http\\Controllers\\Courses\\Factory@showChildren',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'posts.show',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2579,21 +3106,57 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'POST',
       ),
-      'uri' => 'posts/text',
+      'uri' => 'post/text',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
         ),
-        'uses' => 'App\\Http\\Controllers\\Courses\\Posts\\PostTextController@store',
-        'controller' => 'App\\Http\\Controllers\\Courses\\Posts\\PostTextController@store',
+        'uses' => 'App\\Http\\Controllers\\Courses\\Factory@storeText',
+        'controller' => 'App\\Http\\Controllers\\Courses\\Factory@storeText',
         'namespace' => NULL,
-        'prefix' => 'posts/text',
+        'prefix' => '',
         'where' => 
         array (
         ),
         'as' => 'post.text.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'post.text.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PATCH',
+      ),
+      'uri' => 'post/text/update',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Courses\\Factory@updateText',
+        'controller' => 'App\\Http\\Controllers\\Courses\\Factory@updateText',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'post.text.update',
       ),
       'fallback' => false,
       'defaults' => 

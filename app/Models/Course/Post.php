@@ -13,7 +13,7 @@ class Post extends Model
     protected $guarded = [];
 
     public function rows(){
-        return $this->hasMany(Row::class);
+        return $this->belongsTo(Row::class);
     }
     public function posttexts(){
         return $this->hasMany(PostText::class);

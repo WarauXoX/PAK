@@ -37,10 +37,6 @@
     <section class="course-constructor">
 
             <table>
-                <tr class="block row" id="row_1">
-                    <td  class="left-block"><span class="elem" id="1"><button>text</button></span></td>
-                    <td class="right-block"><span class="elem" id="1"><button>text</button></span></td>
-                </tr>
 
                 <tr class="block adder" id="adder">
                     <td><span class="elem" id="1">  +  </span></td>
@@ -75,18 +71,16 @@
 
                 this.buttons = [
                     {
-                        url:'{!! route('post.text.store') !!}',
+                        url:'{!! route('posttext.store') !!}',
                         method:'POST',
-                        name:'text',
-                        onclick: function (e){
-                            console.log(e.target)
-                        },
-                        ajax:$.ajax({
-                            url:this.url,
-                            method:this.method,
-                            data:FormData,
-                            succes:this.succes,
-                        })
+                        name:'Текст',
+                        onclick(e) {
+                            let side = $(e.target).parent().parent()[0].className.split("-")[0];
+                            if(side === "left"){side = 0;}
+                            else{side = 1;}
+                            const row_id = $(e.target).parent().parent().parent()[0].id.split("_")[1];
+                            page.getPostText(side, row_id);
+                        }
                     },
 
                 ];
@@ -117,7 +111,6 @@
                             $('datalist#lesson').remove();
                             $('datalist#lessons').append(`<option value=${r.title}></option>`)
                         }
-
                     }
                 });
             }
@@ -164,52 +157,77 @@
                     }
                 });
             }
-            setPost(row_id, side){
+            getPostText(side, row_id){
                 $.ajax({
-                    url:'{!! route('post.store') !!}',
+                    url:'{!! route('posttext.store') !!}',
                     method:"POST",
                     data:{
-                        row_id:row_id,
                         side:side,
+                        row_id:row_id,
                     },
-                    success: res => {
-                        page.rows[row_id].posts[res.id] = res;
+                    success:(postText)=>{
+                        if(side === 0){
+                            side = 'left';
+                        }
+                        else{
+                            side = "right"
+                        }
+                        const obj = $(`tr#row_${row_id} > td.${side}-block`)
+                        obj.html(" ");
+                        obj.append($(postText));
                     }
-                });
+                })
             }
-            getPost(id){
-                console.log(`{!! route('post.show') !!}`);
+            setPostText(){
+                $.ajax({
+                    url:''
+                })
             }
-
 
             updateRows(){
                 $('.row').remove();
                 for(let row of page.rows){
-                    console.log(row.id);
+                                                                console.log(row.id);
                     let posts = page.updatePosts(row.posts);
-                    adder(row.id, ...posts);
+                                                                console.log(...posts);
+                    adder(row.id, posts);
                 }
             }
             updatePosts(posts){
                 let right_post;
                 let left_post = posts.map( (value)=>{
-                    console.log(value);
-                    if(value.left_side != 0){
+                    if(value.left_side !== 0){
                         right_post = value;
                     }
                     else{
-                        return value;
+                        left_post = value;
                     }
                 })
-
                 return [left_post, right_post];
             }
+
             setButtons(obj){
                 for(let but of buttons){
                     let button =
                     $(obj).html(' ');
                     $(obj).append()
                 }
+            }
+
+            submitLesson(){
+                page.rows.forEach( (val, key)=>{
+                    page.submitRow(val.id);
+                })
+            }
+            submitRow(id){
+                $.ajax({
+                    url:'{!! route('rows.update') !!}',
+                    method:"PUT",
+                    data:{id:id},
+                    succes:(val) => {
+                        console.log(val);
+                    }
+                })
             }
         }
         const page = new Page();
@@ -222,52 +240,59 @@
         });
     </script>
     <script>
-        let default_leftlblock = `<td class="left-block"><span></span></td>`
-        let default_rightblock = `<td class="right-block"><span></span></td>`
+        let default_sideBlock = `<td ><span></span></td>`
+
         let default_block = `<tr class="block row" ></tr>`;
     </script>
     <script>
-            function setleftBlock(post){                 /*-->  SetLeftBlock  <--*/
-            let block = $(default_leftlblock);
-            if(!post){
-                page.buttons.map( (value)=>{
-                    let but = $(`<button id="but_${value.name}">${value.name}</button>`);
-                    but.on('click', ()=>{value.onclick()});
-                    block.html('<span></span>');
-                    block.children().append(but);
-                });
-                return block
-            }
-            block.html(" ");
-            block.append(post);
-            return block;
-        }
-        function setRightBlock(post){                       /*-->  SetRightBlock  <--*/
-            let block = $(default_rightblock);
-            if(typeof(post) == "null"){
-                page.buttons.map( (value)=>{
-                    let but = $(`<button id="but_${value.name}">${value.name}</button>`);
-                    but.on('click', ()=>{value.onclick()});
-                    block.html('<span></span>');
-                    block.children().append(but);
-                });
-                return block
-            }
 
-            block.html(' ');
-            block.append(post.id);
+        /*  -->  Вставка кнопок <--    */
+        /*  Берет Блок и вставляет в него кнопки*/
+        /*  возврощает модифицированый блок*/
+
+        function pastBut(block){
+            block = page.buttons.map( (value)=>{
+
+                let but = $(`<button class="but_${value.name}">${value.name}</button>`);
+                but.on("click", (e)=>{ value.onclick(e)  })
+
+                block.html('<span></span>');
+                block.children().append(but);
+
+            });
             return block;
         }
 
-        function adder(id, leftPost, rightPost){
+        function setPostsForBlock(post, key){
+            let block = $(default_sideBlock);
+
+            if(key === 1){
+                block.attr('class', 'right-block');
+            }
+            else{
+                block.attr("class","left-block");
+            }
+            if(typeof(post) == "undefined"){
+                pastBut(block);
+                return block
+            }
+            else{
+                block.html(" ");
+                block.append(post);
+            }
+            return block;
+        }
+
+        function adder(id, posts = [undefined, undefined]){
             let def = $(default_block);
             def.attr('id', `row_${id}`);
-            let leftBlock = setleftBlock(leftPost);
-            let rightBlock = setRightBlock(rightPost);
-                def.append(leftBlock);
-                def.append(rightBlock);
+                posts.forEach((val, key)=>{
+                    def.append(setPostsForBlock(val, key));
+                })
+
             $('tr#adder').before(def);
         }
+
 
         $('#adder').click( ()=>{
             page.setRows();
@@ -275,6 +300,11 @@
     </script>
 
     <script>
+        $('td.adder').on("click", () => {
+            let id = $("tbody > td:last-child").id
+            adder(id);
+        })
+
         $('form#course').on('focusout', ()=>{
             event.preventDefault();
             page.setCourse();
@@ -284,6 +314,10 @@
             page.setLesson();
         });
 
+        $('input[type="submit"]:last-child').on("click", ()=>{
+            event.preventDefault();
+            page.submitLesson();
+        })
     </script>
 
 
