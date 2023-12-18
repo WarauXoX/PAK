@@ -139,7 +139,6 @@
                     success: (res) => {
                         page.rows = [];
                         page.rows = res;
-
                         page.updateRows();
                     }
                 });
@@ -212,12 +211,6 @@
                     $(obj).html(' ');
                     $(obj).append()
                 }
-            }
-
-            submitLesson(){
-                page.rows.forEach( (val, key)=>{
-                    page.submitRow(val.id);
-                })
             }
             submitRow(id){
                 $.ajax({
