@@ -208,8 +208,18 @@ footer div{
     display: flex;
 }
 footer div p{
-    margin: 0em 2.5em;
+    margin: 0 2.5em;
 }
 .space{
     height: 83dvh;
+    grid-template-columns: [all-start] 100px [full-start] 100px [content-start] 1fr [title_course] 100px [full-0end] 100px [all-end];
 }
+.space > *{
+    grid-column: full-start/full-end;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }

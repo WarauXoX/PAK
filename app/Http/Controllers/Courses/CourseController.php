@@ -14,12 +14,9 @@ class CourseController extends Controller
     /**
      * Display a listing of the resource.
      */
-
-
     public function index()
     {
         $courses = Course::where(["user_id", auth()->user()->id]);
-
         $data = [];
         foreach ($courses as $course){
             array_push($data, [
@@ -31,23 +28,21 @@ class CourseController extends Controller
         return response()->json([
             'data' => $data
         ]);
-    }
 
+    }
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-
         $data = $request->validate([
-            'title' => 'string',
+            'title_course' => 'string',
         ]);
-
         $course = Course::firstOrCreate([
-            'title' => $data['title'],
+            'title' => $data['title_course'],
             'user_id' => auth()->user()->id,
         ]);
-        return $course;
+        return redirect()->back();
     }
     public function getLesson(Request $request){
         $lessons = Course::find($request->course_id)->lessons;
@@ -65,7 +60,6 @@ class CourseController extends Controller
             ]
         ]);
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -75,7 +69,6 @@ class CourseController extends Controller
         $course->save();
         return response()->json($course);
     }
-
     /**
      * Remove the specified resource from storage.
      */
@@ -87,5 +80,9 @@ class CourseController extends Controller
             ]
         ]);
     }
-
+    public function list(){
+        $user_id = auth()->user()->id;
+        $courses = Course::all();
+        return view('list_course', compact('courses'));
+    }
 }

@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
              "role_id" => 1,
              'city' => "ЖОПАСРАНСК",
              'phone' => 123,
-             'avatar' => 'assets/img/avatar/lHMkgk3PFzzrkwcVIkVYXXkMfJXZQzpKzCwSjAfb.jpg'
+             'avatar' => 'assets/img/avatar/lHMkgk3PFzzrkwcVIkVYXXkMfJXZQzpKzCwSjAfb.jpg' //password
          ]);
     }
 }

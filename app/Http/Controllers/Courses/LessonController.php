@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Courses;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course\Course;
 use App\Models\Course\Lesson;
 use App\Models\Course\Row;
 use Illuminate\Http\Request;
@@ -43,7 +44,7 @@ class LessonController extends Controller
 
         $lesson = Lesson::firstOrCreate($data);
 
-        return $lesson;
+        return redirect()->back();
     }
     public function getRows(Request $request){
         $lesson = Lesson::find($request->lesson_id);
@@ -92,5 +93,13 @@ class LessonController extends Controller
                 $lesson->delete(),
             ]
         ]);
+    }
+
+    public function list_lessons(Request $request){
+        $course_id = $request->course_id;
+        $course_name = Course::where('id',$course_id)->first()->title;
+        $lessons = Lesson::where('course_id', $course_id)->get();
+
+        return view('list_lesson', compact('course_name', 'lessons'));
     }
 }

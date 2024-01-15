@@ -18,7 +18,7 @@ return new class extends Migration
             $table->boolean('side');
 //            $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('row_id');
-
+            $table->unsignedBigInteger('posttext_id');
             $table->timestamps();
         });
     }

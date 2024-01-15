@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+{{--    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">--}}
     <script
         src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
         crossorigin="anonymous"></script>
+
+
     @yield('links')
     <title>регистрация</title>
 </head>
@@ -20,7 +23,7 @@
     <div class="app">
         @if(request()->user())
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
+                <a  class="link header__link" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     {{ __('выход') }}
@@ -33,10 +36,9 @@
         @else
             <div class="header-login">
 
-                <label for="start" >Вход</label>
-                <input type="radio" id="start">
+                <a for="start link link__header" >Вход</a>
 
-                <a href="{{route('register')}}">Регистрация</a>
+                <a class="link header__link" href="{{route('register')}}">Регистрация</a>
             </div>
 
         @endif
@@ -45,7 +47,10 @@
 
 </header>
 
-@yield('content')
+<section class="space">
+    @yield('content')
+</section>
+
 
 <footer>
     <div>

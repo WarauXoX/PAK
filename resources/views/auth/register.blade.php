@@ -2,12 +2,13 @@
 @extends('layouts.PAKH')
 
 @section('links')
+  <link rel="stylesheet" href="{{asset('assets/css/registration.css')}}">
 
-    <link rel="stylesheet" href="{{asset('assets/css/registration.css')}}">
 
 @endsection
 
 @section('content')
+
     <h2 style="margin: 1.7em 3em;">Регистрация</h2>
 
     <form method="POST" action="{{ route( 'register' ) }}" class="registration" enctype="multipart/form-data">
@@ -23,7 +24,7 @@
                                placeholder="{{ __('Имя') }}">
 
                         @error('name')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback error" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                         @enderror
@@ -38,7 +39,7 @@
                                placeholder="{{ __('Фамилия') }}">
 
                         @error('surname')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback error" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                         @enderror
@@ -54,7 +55,7 @@
                                placeholder="{{ __('Картинка') }}">
 
                         @error('avatar')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback error" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
@@ -84,7 +85,7 @@
                         </select>
 
                         @error('role')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback error" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
@@ -106,7 +107,7 @@
                         <option value="Самара">Самара</option>
                     </select>
                     @error('city')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="invalid-feedback error" role="alert">
                                         <strong>{{ $message }}</strong>
                         </span>
                     @enderror
@@ -114,8 +115,8 @@
                 <p class="title">Дата рождения</p>
                 <input  type="date" name="birthdate" id="birthdate">
                 @error('birthdate')
-                <span>
-                    <strong class="error">${{$message}}</strong>
+                <span class="invalid-feedback error" id="birth_error">
+                    <strong>{{$message}}</strong>
                 </span>
                 @enderror
             </div>
@@ -133,7 +134,7 @@
                                placeholder="{{ __('Email Address') }}">
 
                         @error('email')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback error" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                         @enderror
@@ -149,7 +150,8 @@
                                class="form-control @error('phone') is-invalid @enderror" name="phone"
                                autocomplete="phone" placeholder="{{ __('Phone') }}">
                         @error('phone')
-                        <span class="invalid-feedback" role="alert">
+
+                        <span class="invalid-feedback error" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
@@ -180,15 +182,16 @@
                     </div>
                 </div>
             </div>
+            <div class="row mb-0">
+                <div class="col-md-6 offset-md-4">
+                    <button type="submit" class="btn btn-primary reg">
+                        {{ __('Register') }}
+                    </button>
                 </div>
-                    <div class="row mb-0">
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('Register') }}
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+            </div>
+
             </div>
         </div>
 
@@ -197,24 +200,6 @@
 
 
 
-
-    <div class="pop-up-bg">
-        <div class="pop-up">
-            <form action="{{route( "login" )}}" method="POST">
-                @csrf
-                <h2>Вход в систему ПАК</h2>
-                <input name="email" placeholder="Ваш E-mail" />
-                <input name="password" placeholder="пароль" />
-                <div id="preResPass">
-                    <a href="#" id="ResPass">Забыли пороль</a>
-                </div>
-                <div class="aunth">
-                    <button type="submit">Войти</button>
-                    <a href="registration.html">Регистрация</a>
-                </div>
-            </form>
-        </div>
-        <div>
 @endsection
 
 @section('scripts')

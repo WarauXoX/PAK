@@ -16,10 +16,7 @@ class Post extends Model
         return $this->belongsTo(Row::class);
     }
     public function posttexts(){
-        return $this->hasMany(PostText::class);
-    }
-    public function imgs(){
-        return $this->hasMany(Img::class);
+        return $this->belongsTo(PostText::class);
     }
     public function user(){
         return $this->belongsTo(User::class);

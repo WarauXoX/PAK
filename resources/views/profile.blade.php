@@ -24,8 +24,8 @@
                 <b>Роль:</b>
                 <p>{{auth()->user()->role->title}}</p>
             </div>
-            <a href="{{route("home.creator")}}">
-                <button><b>+</b> добавить курс</button>
+            <a href="{!! route("courses.list") !!}">
+                <button> <b>+</b> добавить курс</button>
             </a>
         </div>
     </div>

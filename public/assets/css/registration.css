@@ -9,6 +9,22 @@
 h1, h2, h3, p, button, select, a{
     font-family: Montserrat;
 }
+.link{
+    text-decoration: none;
+}
+.header__link{
+    color:white;
+}
+button,
+input[type="submit"]{
+    background-color: #545af8;
+    color: white;
+    padding: 1.7vh 1.42vw;
+    border: 2px solid rgba(121, 121, 121, 0.65);
+}
+button.reg{
+    position: absolute;
+}
 
 header{
     background: #545AF8;
@@ -28,7 +44,7 @@ header h1, header p, header a{
     display: flex;
 }
 .registration div{
-    margin-bottom: em;
+    margin-bottom: 1em;
     width: 25%;
 }
 .registration input{
@@ -104,7 +120,11 @@ footer div{
 footer div p{
     margin: 0em 2.5em;
 }
+.col-md-6{
+    position: relative;
+}
 .error{
+    position: absolute;
     backdrop-filter: blur(15px);
     border-radius: 12px;
     padding: 12px;
@@ -114,4 +134,13 @@ footer div p{
     background-color: rgba(182, 2, 2, 0.61);
     min-width: 11.5vw;
     font-size: 1em;
+    transform: translate(15em, -4.5em);
+    z-index: 999;
+}
+.error:hover{
+    opacity: 0.9;
+}
+#birth_error{
+    /*background-color: #545af8;*/
+    transform: translate(15em, -4.5em);
 }
