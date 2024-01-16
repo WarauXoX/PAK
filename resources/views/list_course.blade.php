@@ -11,11 +11,7 @@
 
             @foreach($courses as $course)
                 <li class="course">
-                    <form action="{!! route('list_lesson') !!}" method="post">
-                        @csrf
-                        <h1>{!! $course->title !!}</h1>
-                        <button type="submit" name="course_id" value="{!! $course->id !!}">{!! $course->title !!}</button>
-                    </form>
+                    <a href="{!! url('courses/' .$course->id . '/lessons') !!}"><h1>{!! $course->title !!}</h1></a>
 
                 </li>
             @endforeach

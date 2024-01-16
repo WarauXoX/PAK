@@ -16,18 +16,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::where(["user_id", auth()->user()->id]);
-        $data = [];
-        foreach ($courses as $course){
-            array_push($data, [
-                'id' => $course->id,
-                'title' => $course->title,
-                'user_id' => $course->user_id,
-            ]);
-        }
-        return response()->json([
-            'data' => $data
-        ]);
+        $courses = Course::where("user_id", auth()->user()->id)->get();
+        return view('list_course', compact('courses'));
 
     }
     /**
@@ -35,6 +25,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->validate([
             'title_course' => 'string',
         ]);
@@ -45,13 +36,14 @@ class CourseController extends Controller
         return redirect()->back();
     }
     public function getLesson(Request $request){
+
         $lessons = Course::find($request->course_id)->lessons;
         return $lessons;
     }
     /**
      * Display the specified resource.
      */
-    public function show(Course $course)
+    public function show($id, Course $course)
     {
         return response()->json([
             'data' => [
@@ -65,6 +57,7 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
+
         $course->fill($request->except(['course_id']));
         $course->save();
         return response()->json($course);
@@ -74,13 +67,14 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
+
         return response()->json([
             'data' => [
                 $course->delete(),
             ]
         ]);
     }
-    public function list(){
+    public function manager(){
         $user_id = auth()->user()->id;
         $courses = Course::all();
         return view('list_course', compact('courses'));

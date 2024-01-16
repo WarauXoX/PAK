@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Courses;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course\Post;
 use App\Models\Course\Row;
 use Illuminate\Http\Request;
 
@@ -34,11 +35,11 @@ class RowController extends Controller
         $data = $request->validate([
             'lesson_id' => 'numeric|nullable',
         ]);
-
         $row = Row::create($data);
-        $posts = $row->posts;
 
-        return $row;
+        Post::create('');
+        $row->posts;
+        return redirect()->back();
     }
 
     /**

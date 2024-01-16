@@ -25,24 +25,23 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
         Route::post('/', [CourseController::class, 'store',])->name('courses.store');
         Route::put('/{id}', [CourseController::class, 'update',])->name('courses.update');
         Route::delete('/{id}', [CourseController::class, 'delete',])->name('courses.delete');
-        Route::get('/list', [CourseController::class, 'list'])->name('courses.list');
-        Route::post('/getLes', [CourseController::class, 'getLesson',])->name('courses.getLesson');
+
+            Route::get('{c_id}/lessons', [LessonController::class, 'index'])->name('lessons.index');
+            Route::get('{c_id}/{id}', [LessonController::class, 'show',])->name('lessons.show');
+            Route::post('{c_id}/', [LessonController::class, 'store',])->name('lessons.store');
+            Route::put('{c_id}/{id}', [LessonController::class, 'update',])->name('lessons.update');
+            Route::delete('{c_id}/{id}', [LessonController::class, 'delete',])->name('lessons.delete');
+
+                Route::get('{c_id}/lessons/{l_id}/create', [PostController::class, 'create']);
+
     });
-    Route::group(['prefix' => 'lessons'], function () {
-        Route::get('/', [LessonController::class, 'index'])->name('lessons.index');
-        Route::get('/{id}', [LessonController::class, 'show',])->name('lessons.show');
-        Route::post('/', [LessonController::class, 'store',])->name('lessons.store');
-        Route::put('/{id}', [LessonController::class, 'update',])->name('lessons.update');
-        Route::delete('/{id}', [LessonController::class, 'delete',])->name('lessons.delete');
-        Route::post('/list', [LessonController::class, 'list_lessons'])->name('lessons.list');
-        Route::post('/getRows', [LessonController::class, 'getRows',])->name('lessons.getRows');
-    });
+
     Route::group(['prefix' => 'row'], function () {
         Route::get('/', [RowController::class, 'index'])->name('rows.index');
-        Route::get('/{id}', [RowController::class, 'show',])->name('rows.show');
+        Route::get('/_{id}', [RowController::class, 'show',])->name('rows.show');
         Route::post('/', [RowController::class, 'store',])->name('rows.store');
         Route::put('/', [RowController::class, 'update',])->name('rows.update');
-        Route::delete('/{id}', [RowController::class, 'delete',])->name('rows.delete');
+        Route::delete('/_{id}', [RowController::class, 'delete',])->name('rows.delete');
     });
     Route::group(['prefix'=> 'posts'], function(){
         Route::get('/', [PostController::class, 'index'])->name('post.index');

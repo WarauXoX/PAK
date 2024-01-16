@@ -13,23 +13,16 @@ class LessonController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($c_id)
     {
-        dd(1111);
-        $lessons = Lesson::all();
-
-        $data = [];
-        foreach ($lessons as $lesson){
-            array_push($data, [
-                'id' => $lesson->id,
-                'title' => $lesson->title,
-                'course' => $lesson->course,
-            ]);
+        $course = Course::where('id', $c_id)->get()[0];
+        if(isset($course->lessons)){
+            $lessons = $course->lessons;
         }
-        return response()->json([
-            'data' => $data
-
-        ]);
+        else{
+            $lessons = [];
+        }
+        return view('list_lesson', compact('lessons', 'course'));
     }
 
     /**
@@ -37,6 +30,7 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->validate([
             'title' => 'string',
             'course_id' => 'numeric',
@@ -78,6 +72,7 @@ class LessonController extends Controller
      */
     public function update(Request $request, Lesson $lesson)
     {
+
         $lesson->fill($request->except(['lesson_id']));
         $lesson->save();
         return response()->json($lesson);
@@ -88,11 +83,8 @@ class LessonController extends Controller
      */
     public function destroy(Lesson $lesson)
     {
-        return response()->json([
-            'data' => [
-                $lesson->delete(),
-            ]
-        ]);
+        $data = $lesson->delete();
+        return redirect()->back(compact('data'));
     }
 
     public function list_lessons(Request $request){

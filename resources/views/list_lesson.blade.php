@@ -8,11 +8,18 @@
 
 @section('content')
     <h1>Курс</h1>
-    <h4>{!! $course_name !!}</h4>
+    <h4>{!! $course->title !!}</h4>
+        <ul>
+            @foreach($lessons as $lesson)
+                <li><a href="{!! url('/courses/'. $course->id. '/lessons/' .$lesson->id . '/create') !!}">{!! $lesson->title !!}</a></li>
+            @endforeach
+        </ul>
 
-    <form action="{!! route('lessons.store') !!}" method="POST">
+
+    <form action="{!! route('lessons.store',  ['c_id' => $course->id]) !!}" method="POST">
         @csrf
-        <input type="text" placeholder="Название Материала">
+        <input type="text" name="title" placeholder="Название Материала">
+        <input type="number" style="display: none" name="course_id" value="{!! $course->id !!}">
         <button type="submit">Создать материал</button>
     </form>
 @endsection

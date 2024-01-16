@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Courses;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course\Course;
 use App\Models\Course\GroupPost;
 use App\Models\Course\Img;
+use App\Models\Course\Lesson;
 use App\Models\Course\Post;
 use App\Models\Course\Posttext;
 use App\Models\Group;
@@ -30,6 +32,7 @@ class PostController extends Controller
             'row_id' => 'required',
             'side' => 'numeric',
         ]);
+
         $post = Post::create($data);
 
         return $post;
@@ -73,25 +76,15 @@ class PostController extends Controller
 
     }
 
-    public function create(){
+    public function create($c_id, $l_id){
+        $course = Course::where('id', $c_id)->get()[0];
+        $lesson = Lesson::where('id', $l_id)->get()[0];
+
         $update = false;
         $user = auth()->user();
 
-//        $posttext = Posttext::all();
-
-        return view("course.course_creatior", compact(['update',"user"]));
+        $rows = $lesson->rows;
+        return view("course.course_creatior", compact(['update',"user", 'course', 'lesson', 'rows']));
     }
 
-    public function updater(){
-        $update = true;
-
-        return view("course.course_creatior", compact('update', ));
-    }
-
-    public function creatorP($data){
-        $postD = $data['course'];
-
-        $post = Post::create($postD);
-
-    }
 }
