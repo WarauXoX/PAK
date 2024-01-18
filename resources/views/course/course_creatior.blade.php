@@ -20,47 +20,42 @@
     <h2>Материал: {!! $lesson->title !!}</h2>
 
     <section class="course-constructor">
-            <table>
+        <div class="table">
+
+
                     @foreach($rows as $row)
-                        <tr id="row_{!! $row->id !!}">
 
-                                @foreach($row->posts as $post)
-                                    <td id="post_{!! $post->id !!}">
-                                        @if(isset($post->posttext))
+                            @foreach($row->posts as $post)
+                        <div id="row_{!! $row->id !!}">
+                                <div id="post_{!! $post->id !!}" class="side_{!! $post->side !!}">
+                                    @if(isset($post->posttext))
+                                        <form action="{!! route('posttext.update', ['id' => $post->posttext->id, 'post_id' => $post->id]) !!}" method="post">
+                                            @csrf
+                                            <input type="text" name="title" value="{!! $post->posttext->title !!}">
+                                            <textarea name="text">{!! $post->posttext->text !!}</textarea>
+                                            <input type="submit" value="submit">
+                                        </form>
+                                    @else
+                                        <form action="{!! route('posttext.store') !!}" method="post">
+                                            @csrf
+                                            <input type="number" style="display: none" name="post_id" value="{!! $post->id !!}">
+                                            <input type="submit" value="create_text">
+                                        </form>
+                                    @endif
+                                </div>
+                        </div>
+                        @endforeach
 
-                                            <form action="{!! route('posttext.update', ['id' => $post->posttext->id, 'post_id' => $post->id]) !!}" method="post">
-                                                @csrf
-                                                <input type="text" name="title" value="{!! $post->posttext->title !!}">
-                                                <textarea name="text">{!! $post->posttext->text !!}</textarea>
-                                                <input type="submit" value="submit">
-                                            </form>
-
-                                        @else
-                                            <form action="{!! route('posttext.store') !!}" method="post">
-                                                @csrf
-                                                <input type="number" style="display: none" name="post_id" value="{!! $post->id !!}">
-                                                <input type="submit" value="create_text">
-                                            </form>
-                                        @endif
-                                    </td>
-                                @endforeach
-
-                        </tr>
                     @endforeach
 
-                <tr class="block adder" id="adder">
-
-                    <td>
-
+                <div class="adder">
                         <form action="{!! route('rows.store') !!}" method="post">
                             @csrf
                             <input type="number" name="lesson_id" value="{!! $lesson->id !!}" style="display: none">
                             <input type="submit" value="+">
                         </form>
-                    </td>
-                </tr>
-            </table>
-            <input type="submit" value="submit">
+                </div>
+        </div>
     </section>
 
 

@@ -40,7 +40,7 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
     Route::group(['prefix' => 'row'], function () {
         Route::get('/', [RowController::class, 'index'])->name('rows.index');
         Route::get('/_{id}', [RowController::class, 'show',])->name('rows.show');
-        Route::post('/', [RowController::class, 'store',])->name('rows.store');
+        Route::post('/', [RowController::class, 'createManyPost',])->name('rows.store');
         Route::put('/', [RowController::class, 'update',])->name('rows.update');
         Route::delete('/_{id}', [RowController::class, 'delete',])->name('rows.delete');
     });

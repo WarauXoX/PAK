@@ -35,6 +35,7 @@ class CourseController extends Controller
         ]);
         return redirect()->back();
     }
+
     public function getLesson(Request $request){
 
         $lessons = Course::find($request->course_id)->lessons;

@@ -104,7 +104,9 @@ header a{
 
 
 
-
+body{
+    background-color: #1a202c;
+}
 
 footer{
     background-color: #545AF8;
@@ -119,6 +121,59 @@ footer div{
 footer div p{
     margin: 0em 2.5em;
 }
-input{
+.table{
+    position: absolute;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    gap: 0px;
 
+
+    animation: scroller linear;
+    animation-timeline: scroll(root);
+
+}
+.table > div{
+    animation: scroller linear;
+    animation-timeline: scroll(root);
+    border: 5px dashed #545af8;
+    background-color: #ef4444;
+    min-width: 45svw;
+    min-height: 30svh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.table form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.table > .side_1{
+    grid-column: 1/1;
+}
+.table > .side_0{
+    grid-column: 2/2;
+}
+.table > div.adder{
+    grid-column: 1/2;
+    width: auto;
+}
+.table > div.slite{
+    grid-column: 1/2;
+}
+
+@keyframes scroller {
+    to{
+        gap: 30px;
+        top: 100svh;
+        min-height: 500vh;
+        min-width: 30svw;
+
+        filter: hue-rotate(9999deg);
+    }
 }
