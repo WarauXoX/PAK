@@ -37,7 +37,7 @@
                     </div>
                     <div class="aunth">
                         <button type="submit">Войти</button>
-                        <a href="registration.html">Регистрация</a>
+                        <a href="{!! route('register') !!}">Регистрация</a>
                     </div>
                 </form>
             </div>

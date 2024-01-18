@@ -35,7 +35,7 @@ class PostController extends Controller
 
         $post = Post::create($data);
 
-        return $post;
+        return redirect()->back();
     }
 
     /**

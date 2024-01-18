@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('posttexts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('post_id');
-            $table->string('title');
-            $table->text('text');
+            $table->string('title')->nullable()->default('default');
+            $table->text('text')->nullable()->default('default');
             $table->timestamps();
         });
     }

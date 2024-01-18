@@ -34,6 +34,7 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
 
                 Route::get('{c_id}/lessons/{l_id}/create', [PostController::class, 'create']);
 
+
     });
 
     Route::group(['prefix' => 'row'], function () {
@@ -47,13 +48,16 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
         Route::get('/', [PostController::class, 'index'])->name('post.index');
         Route::post('/', [PostController::class, 'store'])->name('post.store');
         Route::post('/show', [PostController::class, 'show'])->name('post.show');
-        Route::group(['prefix' => 'text'], function(){
-            Route::get('/', [PostTextController::class, 'index'])->name('posttext.index');
-            Route::post('/', [PostTextController::class, 'store'])->name('posttext.store');
-        });
+
     });
-    Route::resource('/text', TextController::class);
-    Route::post('/post/show', [Factory::class, 'showChildren'])->name('posts.show');
-    Route::post('/post/text', [Factory::class, 'storeText'])->name('post.text.store');
-    Route::patch('/post/text/update', [Factory::class, 'updateText'])->name('post.text.update');
+    Route::group(['prefix' => 'text'], function(){
+        Route::get('/', [PostTextController::class, 'index'])->name('posttext.index');
+        Route::post('/', [PostTextController::class, 'store'])->name('posttext.store');
+        Route::post('/{id}', [PostTextController::class, 'update'])->name('posttext.update');
+    });
+//    Route::resource('/text', TextController::class);
+
+//    Route::post('/post/show', [Factory::class, 'showChildren'])->name('posts.show');
+//    Route::post('/post/text', [Factory::class, 'storeText'])->name('post.text.store');
+//    Route::patch('/post/text/update', [Factory::class, 'updateText'])->name('post.text.update');
 

@@ -12,6 +12,6 @@ class Posttext extends Model
     protected $guarded = [];
 
     public function post(){
-        return $this->belongsTo(Post::class);
+        return $this->hasOne(Post::class);
     }
 }

@@ -36,7 +36,7 @@
         @else
             <div class="header-login">
 
-                <a for="start link link__header" >Вход</a>
+                <a class="start link link__header" href="{!! route('login') !!}">Вход</a>
 
                 <a class="link header__link" href="{{route('register')}}">Регистрация</a>
             </div>

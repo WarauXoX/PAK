@@ -12,14 +12,13 @@ class Post extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function rows(){
+    public function row(){
         return $this->belongsTo(Row::class);
     }
-    public function posttexts(){
-        return $this->belongsTo(PostText::class);
+    public function posttext(){
+        return $this->hasOne(PostText::class);
     }
     public function user(){
         return $this->belongsTo(User::class);
     }
-
 }

@@ -33,12 +33,10 @@ class PostTextController extends Controller
     {
         $data = $request->validate([
             'post_id' => 'required',
-            'title' => 'string',
-            'text' => 'string',
         ]);
 
-        $postText = PostText::create($data);
-        return $postText;
+        Posttext::firstOrCreate($data);
+        return redirect()->back();
     }
 
     /**
@@ -52,8 +50,9 @@ class PostTextController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Posttext $postText)
+    public function update(Request $request)
     {
+        $postText = Posttext::where('id', $request->id)->first();
         $data = $request->validate([
             'post_id' => 'required',
             'title' => 'string',
@@ -62,7 +61,7 @@ class PostTextController extends Controller
 
         $postText->update($data);
         $postText->save();
-        return $postText;
+        return redirect()->back();
     }
 
     /**

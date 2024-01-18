@@ -24,7 +24,7 @@ class RowController extends Controller
                 'lesson' => $row->lesson,
             ]);
         }
-        return $data;
+        return redirect()->back();
     }
 
     /**
@@ -37,8 +37,12 @@ class RowController extends Controller
         ]);
         $row = Row::create($data);
 
-        Post::create('');
-        $row->posts;
+        Post::create([
+            'side' => 1,
+            'row_id' => $row->id,
+            'posttext_id' => 0,
+        ]);
+
         return redirect()->back();
     }
 
@@ -47,12 +51,7 @@ class RowController extends Controller
      */
     public function show(Row $row)
     {
-        return response()->json([
-            'data' => [
-                'title' => $row->number,
-                'lesson' => $row->lesson,
-            ]
-        ]);
+
     }
 
     /**
