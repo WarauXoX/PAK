@@ -50,26 +50,7 @@ class RowController extends Controller
 
         return redirect()->back();
     }
-    public function createManyPost(Request $request){
-        for ($i = 100; $i >= 0; $i --){
-            $data = $request->validate([
-                'lesson_id' => 'numeric|nullable',
-            ]);
-            $row = Row::create($data);
 
-            Post::create([
-                'side' => 1,
-                'row_id' => $row->id,
-                'posttext_id' => 0,
-            ]);
-            Post::create([
-                'side' => 0,
-                'row_id' => $row->id,
-                'posttext_id' => 0,
-            ]);
-        }
-        return redirect()->back();
-    }
     /**
      * Display the specified resource.
      */

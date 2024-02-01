@@ -19,6 +19,8 @@
     @if (session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
+    <x-rich-text-trix-styles />
+
 </head>
 <body>
     <div id="app">

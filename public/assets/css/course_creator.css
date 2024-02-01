@@ -104,10 +104,6 @@ header a{
 
 
 
-body{
-    background-color: #1a202c;
-}
-
 footer{
     background-color: #545AF8;
     color: white;
@@ -122,22 +118,14 @@ footer div p{
     margin: 0em 2.5em;
 }
 .table{
-    position: absolute;
+    width: calc(90vw - 20px);
     display: grid;
     grid-template-columns:1fr 1fr;
-    gap: 0px;
-
-
-    animation: scroller linear;
-    animation-timeline: scroll(root);
-
+    gap: 10px;
 }
 .table > div{
-    animation: scroller linear;
-    animation-timeline: scroll(root);
-    border: 5px dashed #545af8;
-    background-color: #ef4444;
-    min-width: 45svw;
+    border: 5px dashed #a0aec0;
+    max-width: 45dvw;
     min-height: 30svh;
 
     display: flex;
@@ -160,20 +148,9 @@ footer div p{
     grid-column: 2/2;
 }
 .table > div.adder{
-    grid-column: 1/2;
-    width: auto;
-}
-.table > div.slite{
+    width:100%;
     grid-column: 1/2;
 }
-
-@keyframes scroller {
-    to{
-        gap: 30px;
-        top: 100svh;
-        min-height: 500vh;
-        min-width: 30svw;
-
-        filter: hue-rotate(9999deg);
-    }
-}
+/*.table > div.slite{*/
+/*    grid-column: 1/2;*/
+/*}*/

@@ -40,7 +40,7 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
     Route::group(['prefix' => 'row'], function () {
         Route::get('/', [RowController::class, 'index'])->name('rows.index');
         Route::get('/_{id}', [RowController::class, 'show',])->name('rows.show');
-        Route::post('/', [RowController::class, 'createManyPost',])->name('rows.store');
+        Route::post('/', [RowController::class, 'store',])->name('rows.store');
         Route::put('/', [RowController::class, 'update',])->name('rows.update');
         Route::delete('/_{id}', [RowController::class, 'delete',])->name('rows.delete');
     });
@@ -55,9 +55,7 @@ Route::get('/img', [\App\Http\Controllers\Courses\ImageController::class, 'index
         Route::post('/', [PostTextController::class, 'store'])->name('posttext.store');
         Route::post('/{id}', [PostTextController::class, 'update'])->name('posttext.update');
     });
-//    Route::resource('/text', TextController::class);
 
-//    Route::post('/post/show', [Factory::class, 'showChildren'])->name('posts.show');
-//    Route::post('/post/text', [Factory::class, 'storeText'])->name('post.text.store');
-//    Route::patch('/post/text/update', [Factory::class, 'updateText'])->name('post.text.update');
+Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

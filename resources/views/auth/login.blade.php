@@ -1,10 +1,7 @@
-@extends('layouts.PAKH')
-@section('links')
-    <link rel="stylesheet" href="{!! asset('assets/css/style.css') !!}">
-    <link rel="stylesheet" href="{!! asset('assets/css/registration.css') !!}">
-@endsection
+@extends('layouts.app')
+
 @section('content')
-<div class="space">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

@@ -6,11 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
+
 {{--    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">--}}
     <script
         src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
         crossorigin="anonymous"></script>
+
+    <script src="https://cdn/ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
 
 
     @yield('links')
@@ -47,7 +55,7 @@
 
 </header>
 
-<section class="space">
+<section class="space" id="app">
     @yield('content')
 </section>
 

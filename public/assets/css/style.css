@@ -210,16 +210,48 @@ footer div{
 footer div p{
     margin: 0 2.5em;
 }
-.space{
-    height: 83dvh;
-    grid-template-columns: [all-start] 100px [full-start] 100px [content-start] 1fr [title_course] 100px [full-0end] 100px [all-end];
-}
-.space > *{
-    grid-column: full-start/full-end;
-}
+
 .list{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
  }
+.lesson-title{
+    transform: translateX(-900px);
+    list-style-type: none;
+    width: 15dvw;
+    margin: 15px;
+    padding: 10px;
+    background-color: #f6f6f6;
+    box-shadow: 0 1px 5px #a4a4a6;
+    border-radius: 2px;
+    position: relative;
+    overflow: unset;
+    z-index: 2;
+    animation: fade-in linear;
+}
+.lesson-title:hover > *{
+    background: linear-gradient(90deg, #48abcc, #a443c4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2em;
+    z-index: 100;
+}
+.lesson-title:hover::after,
+.lesson-title:hover::before{
+    transform: translateX(0);
+
+}
+.lesson-title > *{
+    color: #1a202c;
+    text-decoration: none;
+}
+
+
+@keyframes fade-in {
+    to{
+        transform: translate(0, 0);
+    }
+}
